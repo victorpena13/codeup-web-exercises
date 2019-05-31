@@ -7,16 +7,19 @@
     <body>
     <login>
         <form method="post" action="https://www.elformo.com/forms/b86bd915-96e8-4499-91f2-e53ad4ddef07">
-        <input type="text" name="email" placeholder="Enter email address"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <button type="submit">Login</button><br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter email address"><br>
+            <label for="password">password</label>
+            <input type="password" name="password" id="password" placeholder="Password"><br>
+            <button type="submit">Login</button><br>
         </form>
     </login>
     <div>
         <p>
             <form method="post" action="https://www.elformo.com/forms/b86bd915-96e8-4499-91f2-e53ad4ddef07">
-            <textarea name="bio" id="bio" cols="30" rows="10" placeholder="About Me"></textarea><br>
-            <button type="submit">Submit</button>
+                <label for="bio">bio</label><br>
+                <textarea name="bio" id="bio" cols="30" rows="10" placeholder="About Me"></textarea><br>
+                <button type="submit">Submit</button>
             </form>
         </p>
     </div>
@@ -24,11 +27,15 @@
         <p>
             <form method="post" action="https://www.elformo.com/forms/b86bd915-96e8-4499-91f2-e53ad4ddef07">
             How did you hear about us?<br>
-            <input type="checkbox" name="Q1" value="Billboard">Billboard<br>
-            <input type="checkbox" name="Q1" value="Radio Advertisement">Radio Advertisement<br>
-            <input type="checkbox" name="Q1" value="Internet Advertisement">Internet Advertisement<br>
-            <input type="checkbox" name="Q1" value="Other">Other<br>
-            <button type="submit">submit</button>
+                <input type="checkbox" name="Q1" value="Billboard" id="Billboard">
+                <label for="Billboard">Billboard</label><br>
+                <input type="checkbox" name="Q1" value="Radio Advertisement" id="Radio Advertisement">
+                <label for="Radio Advertisement">Radio Advertisement</label><br>
+                <input type="checkbox" name="Q1" value="Internet Advertisement" id="Internet Advertisement">
+                <label for="Internet Advertisement">Internet Advertisement</label><br>
+                <input type="checkbox" name="Q1" value="Other" id="Other">
+                <label for="Other">Other</label><br>
+                <button type="submit">submit</button>
 
         </p>
         <p>
