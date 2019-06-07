@@ -1,0 +1,21 @@
+h1 {
+    font-family: arial;
+    text-align: center;
+    background-color: #ffffff8c;
+}
+img {
+    width: 20px;
+}
+.card-header {
+    background-color: #157ffb;
+}
+.header {
+    background-color: #848487;
+}
+.btn-primary {
+    float: right;
+    margin: .5em;
+}
+button {
+    float: right;
+}
