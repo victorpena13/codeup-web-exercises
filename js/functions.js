@@ -67,6 +67,7 @@ var random = Math.floor((Math.random() * 3) + 1);
 function isTwo(a) {
     return a === 2;
 }
+consoloe.log(random);
 console.log(isTwo(random));
 
 /**
@@ -81,8 +82,8 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-function calculateTip(a,b) {
-    return a * b;
+function calculateTip(a, b) {
+    return a * b/100;
 }
 console.log(calculateTip(25.00,.20));
 

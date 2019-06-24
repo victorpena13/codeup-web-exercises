@@ -1,0 +1,33 @@
+h1, h2 {
+    color: purple;
+    text-decoration: underline;
+}
+header {
+    text-align: center;
+}
+body {
+    background-image: url("../img/cactus.JPEG");
+    background-color: antiquewhite;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "American Typewriter", serif;
+}
+ul {
+    list-style:square;
+}
+table, tr, th, td {
+    border: 1px solid black;
+}
+a:link {
+    color: #ff2ccf;
+}
+a:hover {
+    color: olivedrab;
+}
+
+
+
+
+
+
