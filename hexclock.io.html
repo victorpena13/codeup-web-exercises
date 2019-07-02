@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>hexclock.io</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+        h1 span {
+            font-weight: 500;
+        }
+        h1 {
+            margin-top: 0;
+            word-wrap: break-word;
+            margin-bottom: 8px;
+            font-size: 1.5em;
+            color: gray;
+            font-family: sans-serif;
+        }
+        body {
+            /*padding-left: 3em;*/
+            padding-top: 6em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div id="main-content">
+            <img id="errorIcon" src="img/errorIcon.PNG" alt="this site can't be reached" width="50px">
+            <h1>
+                <span>This site can't be reached</span>
+            </h1>
+            <p>hexclock.io refused to connect.</p>
+            <p>try:</p>
+            <ul>
+                <li>Checking the connection</li>
+                <li><a href="chrome-error://chromewebdata/#buttons" target="_blank" onclick="setVisibility('sub3')">Checking the proxy and the firewall</a></li>
+            </ul>
+            <p>ERR_CONNECTION_REFUSED</p>
+            <input type=button name=type id='bt1' value='Details' onclick="setVisibility('sub3');";>
+            <button value="Refresh Page" onClick="window.location.reload();">Reload</button>
+        </div>
+        <div id="sub3">
+            <strong>Check your Internet connection</strong><br>
+            Check any cables and reboot any routers, modems, or other network devices you may be using.<br>
+            <strong>Allow Chrome to access the network in your firewall or antivirus settings.</strong><br>
+            If it is already listed as a program allowed to access the network, try removing it from the list and adding it again.<br>
+            <strong>If you use a proxy server…</strong><br>
+            Check your proxy settings or contact your network administrator to make sure the proxy server is working. If you don't believe you should be using a proxy server: Go to Applications > System Preferences > Network > Advanced > Proxies and deselect any proxies that have been selected.
+        </div>    </div>
+    <div class="col-4">
+<!--        One of two columns-->
+    </div>
+</div>
+
+    <script src="js/hexclock.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Your custom JS goes here -->
+</body>
+</html>

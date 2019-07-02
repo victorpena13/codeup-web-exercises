@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Box Exercise</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<style>
+    #map {
+        /* the width and height may be set to any size */
+        width: 100%;
+        height: 700px;
+    }
+</style>
+
+<h1>My First Map</h1>
+<button id="button">India Palace</button>
+<div id ='map'></div>
+<!-- mapbox js -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-utils.js"></script>
+<!-- Custom JS -->
+<script>
+
+    mapboxgl.accessToken = mapboxToken;
+    var options = {
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    };
+
+    var map = new mapboxgl.Map(options);
+
+    var indiaInfo = {
+        name: "india palace",
+        address: "8474 Fredericksburg Rd, San Antonio, TX 78229",
+        popupHTML: "<p>India Palace</p>"
+    };
+
+    var whataburger = {
+        name: "whataburger",
+        address: "412 E W Commerce St, San Antonio, TX 78205",
+        popupHTML: "<p>Whataburger</p>"
+    };
+    var bohanans = {
+        name:"bohanans",
+        address: "219 E Houston St, San Antonio, TX 78205",
+        popupHTML: "<p>Bohanan's</p>"
+    }
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, mapboxToken).then(function (results) {
+            var popup = new mapboxgl.Popup({closeButton: true})
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(results)
+                .addTo(map)
+                .setPopup(popup);
+            popup.addTo(map);
+        });
+    }
+    var arrayofRestaurants = [indiaInfo, whataburger, bohanans];
+    arrayofRestaurants.forEach(function(names){
+        console.log(names);
+        placeMarkerAndPopup(names, mapboxToken, map);
+    });
+
+    // placeMarkerAndPopup(indiaInfo, mapboxToken, map);
+    // placeMarkerAndPopup(whataburger, mapboxToken, map);
+    // placeMarkerAndPopup(bohanans, mapboxToken, map);
+
+    // geocode("Original Blanco Cafe", mapboxToken).then(function(blancoCafe){
+    //     var marker1 = mapboxgl.Marker({color:"orange"})
+    //         .setLngLat(blancoCafe)
+    //         .addTo(map);
+    //     var popup1 = new mapboxgl.Popup()
+    //         .setHTML("<p>Original Blanco Cafe</p>")
+    //         .setLngLat(blancoCafe)
+    //         .addTo(map)
+    //
+    // })
+</script>
+</body>
+</html>
