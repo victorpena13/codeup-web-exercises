@@ -33,12 +33,11 @@
 <div id="usersWeather"></div>
 
 <label for="latitude">latitude</label>
-<input id="latitude" name="latitude" type="text" onsubmit="Retrieve()">
+<input id="latitude" name="latitude" type="text">
 <label for="longitude">longitude</label>
-<input id="longitude" name="longitude" type="text" onsubmit="Retrieve()">
+<input id="longitude" name="longitude" type="text">
 
-
-<input onclick="Retrieve()" type="submit">
+<button id="usersubmit" type="submit">submit</button>
 
 <!--<form id="form" onsubmit="return false;">-->
 <!--    <input type="text" id="userInput">-->
@@ -87,7 +86,12 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <script>
 
-// function getWeather(geoLat, geoLng){
+        // $(document).ready(function(){
+        //     $('body').css('background-color', 'red');
+        // })
+
+
+// function getWeatherOld(geoLat, geoLng){
 //     var proxy = "https://cors-anywhere.herokuapp.com/";
 //     var dsAPI = "https://api.darksky.net/forecast/";
 //     var dsKey = darkSkyeKey + "/";
@@ -98,13 +102,16 @@
 //         console.log(wSummary);
 //     })
 // }
-function Retrieve() {
+
+$('#usersubmit').click(function () {
     var inputLat = document.getElementById('latitude').value;
     var inputLon = document.getElementById('longitude').value;
     var userPosition = inputLat + ", " + inputLon;
     console.log(userPosition)
-    // var usersWeather = getWeather(inputLat, inputLon);
-            }
+    getWeather(inputLat, inputLon);
+
+})
+
 
 
 
@@ -117,36 +124,50 @@ var map = new mapboxgl.Map({
     center: [-98.4916, 29.4252]
 });
 
+var marker = new mapboxgl.Marker()
+    .setLngLat([-98.4916, 29.4260])
+    .addTo(map);
 
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/29.4241, -98.4936").done(function(data){
-            var dateObject = new Date(data.currently.time * 1000);
-            var temp = (data.currently.temperature);
-            var cloud = (data.currently.icon);
-            var speed = (data.currently.windSpeed);
-            var pressure = (data.currently.pressure);
-            $('#temp').html(temp);
-            $('#time').html(dateObject);
-            $('#cloud').html(cloud);
-            $('#speed').html(speed);
-            $('#pressure').html(pressure);
-            var tempTom = (data.daily.data[1].temperatureHigh);
-            var sumTom = (data.daily.data[1].summary);
-            var windTom = (data.daily.data[1].windSpeed);
-            var pressTom = (data.daily.data[1].pressure);
-            $('#tom').html(tempTom);
-            $('#sumTom').html(sumTom);
-            $('#windSpeed').html(windTom);
-            $('#pressTom').html(pressTom);
-            var tempThree = (data.daily.data[2].temperatureHigh);
-            var sumThree = (data.daily.data[2].summary);
-            var windThree = (data.daily.data[2].windSpeed);
-            var pressThree = (data.daily.data[2].pressure);
-            $('#three').html(tempThree);
-            $('#sumThree').html(sumThree);
-            $('#windSpeedThree').html(windThree);
-            $('#pressThree').html(pressThree);
-            // console.log(data);
-        });
+var userLat = 29.4241;
+var userLng = -98.4936;
+getWeather(userLat, userLng);
+
+function getWeather(userLat, userLng) {
+
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
+        console.log(data)
+        var dateObject = new Date(data.currently.time * 1000);
+        var temp = (data.currently.temperature);
+        var cloud = (data.currently.icon);
+        var speed = (data.currently.windSpeed);
+        var pressure = (data.currently.pressure);
+        $('#temp').html(temp);
+        $('#time').html(dateObject);
+        $('#cloud').html(cloud);
+        $('#speed').html(speed);
+        $('#pressure').html(pressure);
+        var tempTom = (data.daily.data[1].temperatureHigh);
+        var sumTom = (data.daily.data[1].summary);
+        var windTom = (data.daily.data[1].windSpeed);
+        var pressTom = (data.daily.data[1].pressure);
+        $('#tom').html(tempTom);
+        $('#sumTom').html(sumTom);
+        $('#windSpeed').html(windTom);
+        $('#pressTom').html(pressTom);
+        var tempThree = (data.daily.data[2].temperatureHigh);
+        var sumThree = (data.daily.data[2].summary);
+        var windThree = (data.daily.data[2].windSpeed);
+        var pressThree = (data.daily.data[2].pressure);
+        $('#three').html(tempThree);
+        $('#sumThree').html(sumThree);
+        $('#windSpeedThree').html(windThree);
+        $('#pressThree').html(pressThree);
+        // console.log(data);
+    });
+}
+
+
+
 
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
