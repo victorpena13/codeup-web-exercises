@@ -1,71 +1,45 @@
-// var userInput = prompt('Enter original class day: ');
-// var userInputTwo = prompt('Enter second class day: ');
+// 'use strict';
 //
-// function makeDay(userInput, userInputTwo){
-//     if (userInput === userInputTwo) {
-//         return false;
+// var greeting = 'Howdy ';
+// var name = 'Molly';
+// var message = ', please check your order:';
+// var welcome = greeting + name + message;
+//
+// function updateMessage() {
+//     var el = document.getElementById('greeting');
+//     el.textContent = welcome;
+// }
+//
+// updateMessage();
+//
+//
+// // Heather is wanting to join an after school club. She is currently involved with another club at school, but luckily all after
+// // school clubs will only meet on one day out of the week. Return an alert to Heather as to whether or not she can join another
+// // club.
+//
+// var currentClass = prompt('what day of the week does the first class fall on: ');
+// var newClass = prompt('What day of the week does the new class fall on: ');
+//
+// function join(a, b) {
+//     if (currentClass.toLowerCase() !== newClass.toLowerCase()) {
+//         alert('You can join');
 //     } else {
-//         return true;
+//         alert('You cannot join');
 //     }
 // }
+// join();
+
+
+
+// var allowedKeys = {
+//     13: 'enter'
+// };
 //
-// alert(makeDay(userInput, userInputTwo))
-
-
-
-
-
-// function officialPrice(price, pound){
-//     return (price * pound) * .80;
-// }
+// var konamiCode = ['enter'];
 //
-// var tofuPrice = prompt('enter tofu orignal amount: ');
-// var lambPrice = prompt('enter lamb orignal amount: ');
-// var potPrice = prompt('enter potatoe orignal amount: ');
+// var konamiCodePosition = 0;
 //
-// var tofuPound = prompt('enter tofu pounds:')
-// var lambPound = prompt('enter lamb pounds:')
-// var potPound = prompt('enter potatoe pounds:')
-//
-// alert("Your total for Tofu with 20% discount is: " + officialPrice(tofuPrice, tofuPound) + "Your total for lamb with 20% discount is: " + officialPrice(lambPrice, lambPound) + "Your total for potatoes with discount is: " + officialPrice(potPrice, potPound) + "!");
-
-// !!! ALGEBRA HEAVY !!!
-//     Jimmy wants to buy and sell some metal. If he has two and a half pounds he can smelt it into an ingot and sell back the metal
-// for triple the profit. Any metal he has, he can sell back for a thirty percent loss. Jimmy will alway make an ingot if he can,
-//     and will sell all of the metal he has, ingot or not. The metal Jimmy wants to smelt is priced at fifteen dollars per eight
-// ounces. Alert Jimmy with how much money he's made from selling the metal, as well as how much of it, by pounds, he was forced
-// to sell at a loss, and how many ingots he was able to sell.
-
-// var arr = word.toLowerCase().value
-
-// function makeCar(make, model) {
-//     var carMake = prompt('Enter Car Make: ');
-//     var carModel = prompt('Enter Car Model: ');
-//     var cars: [
-//         make: "",
-//         model:
-//     ]
-//
-// }
-
-// var pounds = prompt('enter the amount of metal jimmy owns: ');
-//
-// function ignot(pounds){
-//     if(isNaN === true) {
-//         var userInput = pounds * 16;
-//         continue;
-//     } if(userInput >= 15) {
-//          alert(userInput * 1.87);
-//     }
-// }
-//
-
-    // if(userInput % 2 !== 0)
-    //
-//
-//
-//     return
-
-
-//class work
+// $('body').keydown(function(e){
+//     var key = allowedKeys[e.keycode]
+// })
 

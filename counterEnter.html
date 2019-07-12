@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+count enter: <span id="counter"></span>
+
+
+<script>
+    var i = 0;
+    document.addEventListener(‘keyup’, pressEnter,false);
+    var counter = document.getElementById(‘counter’);
+    function pressEnter(ent) {
+        ent.preventDefault();
+        // counter.style.color = ‘white’;
+        if (ent.keyCode === 13) {
+            i +=1;
+            counter.innerHTML = ‘you have pressed enter ’ + i + ' times’
+        }
+    }
+
+</script>
+</body>
+</html>

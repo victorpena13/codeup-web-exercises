@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+    var allowedKeys = {
+    //     71: 'g'
+    // };
+    //
+    // // the 'official' Konami Code sequence
+    // var Code = ['g'];
+    //
+    // // a variable to remember the 'position' the user has reached so far.
+    // var Position = 0;
+    //
+    // // add keydown event listener
+    // $('body').keydown(function(e){
+    //     var key = allowedKeys[e.keyCode];
+    //     // get the value of the required key from the konami code
+    //     var requiredKey = Code[Position];
+    //
+    //     // compare the key with the required key
+    //     if (key == requiredKey) {
+    //
+    //         // move to the next key in the konami code sequence
+    //         Position++;
+    //
+    //         // if the last key is reached, activate cheats
+    //         if (Position == Code.length) {
+    //             activateCheats();
+    //             Position = 0;
+    //         }
+    //     } else {
+    //         Position = 0;
+    //     }
+    // });
+    //
+    // function activateCheats() {
+    //     $('body').css('background-color',"purple");
+    // };
+
+        71: 'g'
+    };
+
+    // the 'official' Konami Code sequence
+    var Code = ['g'];
+
+    // a variable to remember the 'position' the user has reached so far.
+    var Position = 0;
+
+    // add keydown event listener
+    $('body').keydown(function(e){
+        var key = allowedKeys[e.keyCode];
+        // get the value of the required key from the konami code
+        var requiredKey = Code[Position];
+
+        // compare the key with the required key
+        if (key == requiredKey) {
+
+            // move to the next key in the konami code sequence
+            Position++;
+
+            // if the last key is reached, activate cheats
+            if (Position == Code.length) {
+                activateCheats();
+                Position = 0;
+            }
+        } else {
+            Position = 0;
+        }
+    });
+
+    function activateCheats() {
+        $('body').css('background-color',"purple");
+    };
+</script>
+</body>
+</html>

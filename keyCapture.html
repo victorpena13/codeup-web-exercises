@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Capture</title>
+</head>
+<body>
+<h3>onkeydown - onkeyup</h3>
+Key Pressed: <span id="kp"></span>
+<br>
+Key code: <span id="kc"></span>
+<p id="status">Keyboard Event Status</p>
+<script type="text/javascript">
+    document.onkeydown = function(event) {
+        var key_press = String.fromCharCode(event.keyCode);
+        var key_code = event.keyCode;
+        document.getElementById('kp').innerHTML = key_press;
+        document.getElementById('kc').innerHTML = key_code;
+    }
+
+    document.onkeyup = function(event) {
+        var key_press = String.fromCharCode(event.keyCode);
+        var status = document.getElementById('status');
+        status.innerHTML = "Up Event Fired For : " + key_press;
+    }
+</script>
+
+
+</body>
+</html>

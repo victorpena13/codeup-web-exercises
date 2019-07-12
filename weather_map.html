@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #addcfb;
+        }
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<h1>Weather Application</h1>
+<!--Current Time: <span id="time"></span>-->
+<h2>San Antonio</h2>
+
+
+<div id="usersWeather"></div>
+
+<label for="latitude">latitude</label>
+<input id="latitude" name="latitude" type="text" onsubmit="Retrieve()">
+<label for="longitude">longitude</label>
+<input id="longitude" name="longitude" type="text" onsubmit="Retrieve()">
+
+
+<input onclick="Retrieve()" type="submit">
+
+<!--<form id="form" onsubmit="return false;">-->
+<!--    <input type="text" id="userInput">-->
+<!--    -->
+<!--    <input type="submit" onclick="nameRet()">-->
+<!--</form>-->
+<div id="weather"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Today</h3>
+            Temperature: <br><span id="temp"></span><br>
+
+            Clouds: <br><span id="cloud"></span><br>
+
+            Wind Speed: <br><span id="speed"></span><br>
+
+            Pressure: <br><span id="pressure"></span><br>        </div>
+        <div class="col-sm">
+            <h3>Tomorrow</h3>
+            Temperature High: <br><span id="tom"></span><br>
+            Clouds: <br><span id="sumTom"></span><br>
+            Wind Speed: <br><span id="windSpeed"></span><br>
+            Pressure: <br><span id="pressTom"></span>
+        </div>
+        <div class="col-sm">
+<!--            //build a function that shows the third day out from present!-->
+            <h3>Day after Tomorrow</h3>
+            Temperature High: <br><span id="three"></span><br>
+            Clouds: <br><span id="sumThree"></span><br>
+            Wind Speed: <br><span id="windSpeedThree"></span><br>
+            Pressure: <br><span id="pressThree"></span>
+        </div>
+        <div id='map'></div>
+
+        <br>
+    </div>
+
+    <br>
+</div>
+
+
+    <div id="weather"></div>
+    <script src="js/keys.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script>
+
+// function getWeather(geoLat, geoLng){
+//     var proxy = "https://cors-anywhere.herokuapp.com/";
+//     var dsAPI = "https://api.darksky.net/forecast/";
+//     var dsKey = darkSkyeKey + "/";
+//     var URLRequest = proxy + dsAPI + dsKey + geoLng + ", " + geoLat;
+//     $.get(URLRequest).done(function(data){
+//         var wSummary = data.currently.summary;
+//         var wTemperature = data.currently.temperature;
+//         console.log(wSummary);
+//     })
+// }
+function Retrieve() {
+    var inputLat = document.getElementById('latitude').value;
+    var inputLon = document.getElementById('longitude').value;
+    var userPosition = inputLat + ", " + inputLon;
+    console.log(userPosition)
+    // var usersWeather = getWeather(inputLat, inputLon);
+            }
+
+
+
+var accessToken = mapboxToken;
+mapboxgl.accessToken = accessToken;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 10,
+    center: [-98.4916, 29.4252]
+});
+
+
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/29.4241, -98.4936").done(function(data){
+            var dateObject = new Date(data.currently.time * 1000);
+            var temp = (data.currently.temperature);
+            var cloud = (data.currently.icon);
+            var speed = (data.currently.windSpeed);
+            var pressure = (data.currently.pressure);
+            $('#temp').html(temp);
+            $('#time').html(dateObject);
+            $('#cloud').html(cloud);
+            $('#speed').html(speed);
+            $('#pressure').html(pressure);
+            var tempTom = (data.daily.data[1].temperatureHigh);
+            var sumTom = (data.daily.data[1].summary);
+            var windTom = (data.daily.data[1].windSpeed);
+            var pressTom = (data.daily.data[1].pressure);
+            $('#tom').html(tempTom);
+            $('#sumTom').html(sumTom);
+            $('#windSpeed').html(windTom);
+            $('#pressTom').html(pressTom);
+            var tempThree = (data.daily.data[2].temperatureHigh);
+            var sumThree = (data.daily.data[2].summary);
+            var windThree = (data.daily.data[2].windSpeed);
+            var pressThree = (data.daily.data[2].pressure);
+            $('#three').html(tempThree);
+            $('#sumThree').html(sumThree);
+            $('#windSpeedThree').html(windThree);
+            $('#pressThree').html(pressThree);
+            // console.log(data);
+        });
+
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
