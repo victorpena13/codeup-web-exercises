@@ -5,6 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weather</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+    <script src="js/mapbox-utils.js"></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -38,6 +41,8 @@
 <input id="longitude" name="longitude" type="text">
 
 <button id="usersubmit" type="submit">submit</button>
+
+
 
 <!--<form id="form" onsubmit="return false;">-->
 <!--    <input type="text" id="userInput">-->
@@ -85,48 +90,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <script>
+        var inputLat;
+        var inputLon;
+        geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+            var mapOptions = {
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 10,
+                center: SATX
+            };
+            var map = new mapboxgl.Map(mapOptions);
+            var geocoder = new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            });
+            map.addControl(geocoder);
+            geocoder.on('result', function(e) {
+                console.log(e.result.geometry);
+                inputLat = e.result.geometry.coordinates[1];
+                inputLon = e.result.geometry.coordinates[0];
+            });
+        });
 
-        // $(document).ready(function(){
-        //     $('body').css('background-color', 'red');
-        // })
 
-
-// function getWeatherOld(geoLat, geoLng){
-//     var proxy = "https://cors-anywhere.herokuapp.com/";
-//     var dsAPI = "https://api.darksky.net/forecast/";
-//     var dsKey = darkSkyeKey + "/";
-//     var URLRequest = proxy + dsAPI + dsKey + geoLng + ", " + geoLat;
-//     $.get(URLRequest).done(function(data){
-//         var wSummary = data.currently.summary;
-//         var wTemperature = data.currently.temperature;
-//         console.log(wSummary);
-//     })
-// }
 
 $('#usersubmit').click(function () {
-    var inputLat = document.getElementById('latitude').value;
-    var inputLon = document.getElementById('longitude').value;
+    inputLat = document.getElementById('latitude').value;
+    inputLon = document.getElementById('longitude').value;
     var userPosition = inputLat + ", " + inputLon;
-    console.log(userPosition)
+    // console.log(userPosition)
     getWeather(inputLat, inputLon);
 
-})
-
-
-
-
-var accessToken = mapboxToken;
-mapboxgl.accessToken = accessToken;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 10,
-    center: [-98.4916, 29.4252]
 });
 
-var marker = new mapboxgl.Marker()
-    .setLngLat([-98.4916, 29.4260])
-    .addTo(map);
+
+
+
+// var accessToken = mapboxToken;
+mapboxgl.accessToken = mapboxToken;
+
+// var marker = new mapboxgl.Marker()
+//     .setLngLat([-98.4916, 29.4260])
+//     .addTo(map);
 
 var userLat = 29.4241;
 var userLng = -98.4936;
