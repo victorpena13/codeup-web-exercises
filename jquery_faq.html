@@ -10,12 +10,18 @@
         ul {
            display: none;
         }
+        .contentPost {
+            display:none;
+        }
+
     </style>
 </head>
 <body>
 <div>
-    <h1>Would you like to sign up for our newsletter?</h1>
-    <span>x</span>
+    <div class="contentPost">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span>x</span>
+    </div>
 </div>
 <h1>National Park FAQS</h1>
 <dl>
@@ -114,6 +120,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
 
+$(document).ready(function(){
+    $(".contentPost").delay(8000).fadeIn(500);
+})
 
     $('h3').click(function(){
         $('ul').show();
