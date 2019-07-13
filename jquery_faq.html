@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Title</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 <h1>National Park FAQS</h1>
@@ -36,7 +38,7 @@
     <dt><strong>How many people visit the national parks?</strong></dt>
     <dd class="invisible">Total recreation visitors to the national parks in 2018: 318,211,833.</dd>
 </dl>
-
+<button >click change color</button>
 <h3>Yosemite National Park </h3>
 <ul>
     <li>
@@ -70,14 +72,43 @@
 </ul>
 <h3>Dinosaur Valley State Park</h3>
 <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>
+        Around 113 million years ago, this area was at the edge of an advancing and retreating sea.
+    </li>
+    <li>
+
+        DINOSAUR VALLEY STATE PARK.
+    </li>
+    <li>
+        n Farm Road 205 four miles west of Glen Rose in north central Somervell County, was established by the Texas Parks and Wildlife Department in 1969.
+    </li>
+    <li>
+        The tracks, which were likely made by three different types of dinosaurs-acrocanthosaurus, pleurocoelus, and an as yet unidentified species-range from twelve to thirty-six inches in length and nine to twenty-four inches in width and are found at seven locations in the park
+    </li>
 </ul>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+
+
+
+
+    $('button').click(function(){
+        $('li').each(function(){
+            $(this).css('backgroundColor', 'yellow');
+        })
+    });
+
+    $('h3').click(function(){
+        $('li').each(function(){
+            $(this).css('font-weight', 'bold');
+        })
+    });
+
+
     $('dt').click(function() {
         $(".invisible").toggle("");
         $( ".invisible" ).css( "visibility", "visible");
