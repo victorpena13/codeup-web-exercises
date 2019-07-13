@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        ul {
+           display: none;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>x</span>
+</div>
 <h1>National Park FAQS</h1>
 <dl>
     <dt><strong>How old is the National Park System?</strong></dt>
@@ -106,6 +115,14 @@
 <script>
 
 
+    $('h3').click(function(){
+        $('ul').show();
+    });
+
+    $('span').click(function(){
+        $('div').hide();
+        });
+
 
 
     $('button').click(function(){
@@ -120,6 +137,10 @@
         })
     });
 
+    $(document).ready(function(){
+        $(".invisible").toggle("");
+        $('.invisible').css("visibility", "hidden");
+    });
 
     $('dt').click(function() {
         $(".invisible").toggle("");
@@ -127,10 +148,7 @@
         $('dt').css("background-color", "aquamarine");
     });
 
-    $(document).ready(function(){
-        $(".invisible").toggle("");
-        $('.invisible').css("visibility", "hidden");
-    });
+
 
 
 
