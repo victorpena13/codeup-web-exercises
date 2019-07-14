@@ -33,14 +33,13 @@
 <h2>San Antonio</h2>
 
 
-<div id="usersWeather"></div>
 
-<label for="latitude">latitude</label>
-<input id="latitude" name="latitude" type="text">
-<label for="longitude">longitude</label>
-<input id="longitude" name="longitude" type="text">
+<!--<label for="latitude">latitude</label>-->
+<!--<input id="latitude" name="latitude" type="text">-->
+<!--<label for="longitude">longitude</label>-->
+<!--<input id="longitude" name="longitude" type="text">-->
 
-<button id="usersubmit" type="submit">submit</button>
+<!--<button id="usersubmit" type="submit">submit</button>-->
 
 
 
@@ -85,92 +84,84 @@
 </div>
 
 
-    <div id="weather"></div>
     <script src="js/keys.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    <script>
-        var inputLat;
-        var inputLon;
-        geocode('San Antonio, TX', mapboxToken).then(function(SATX){
-            var mapOptions = {
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v9',
-                zoom: 10,
-                center: SATX
-            };
-            var map = new mapboxgl.Map(mapOptions);
-            var geocoder = new MapboxGeocoder({
-                accessToken: mapboxgl.accessToken,
-                mapboxgl: mapboxgl
-            });
-            map.addControl(geocoder);
-            geocoder.on('result', function(e) {
-                console.log(e.result.geometry);
-                inputLat = e.result.geometry.coordinates[1];
-                inputLon = e.result.geometry.coordinates[0];
-            });
+
+<script>
+    // var inputLat;
+    // var inputLon;
+    geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+        var mapOptions = {
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: SATX
+        };
+        var map = new mapboxgl.Map(mapOptions);
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        });
+        map.addControl(geocoder);
+        geocoder.on('result', function(e) {
+            // console.log(e.result.geometry);
+            var inputLat = e.result.geometry.coordinates[1];
+            var inputLon = e.result.geometry.coordinates[0];
+            var userLat = 29.4241;
+            var userLng = -98.4936;
+            getWeather(inputLat, inputLon);
+            function getWeather(userLat, userLng) {
+                $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
+                    console.log(data)
+                    var dateObject = new Date(data.currently.time * 1000);
+                    var temp = (data.currently.temperature);
+                    var cloud = (data.currently.icon);
+                    var speed = (data.currently.windSpeed);
+                    var pressure = (data.currently.pressure);
+                    $('#temp').html(temp);
+                    $('#time').html(dateObject);
+                    $('#cloud').html(cloud);
+                    $('#speed').html(speed);
+                    $('#pressure').html(pressure);
+                    var tempTom = (data.daily.data[1].temperatureHigh);
+                    var sumTom = (data.daily.data[1].summary);
+                    var windTom = (data.daily.data[1].windSpeed);
+                    var pressTom = (data.daily.data[1].pressure);
+                    $('#tom').html(tempTom);
+                    $('#sumTom').html(sumTom);
+                    $('#windSpeed').html(windTom);
+                    $('#pressTom').html(pressTom);
+                    var tempThree = (data.daily.data[2].temperatureHigh);
+                    var sumThree = (data.daily.data[2].summary);
+                    var windThree = (data.daily.data[2].windSpeed);
+                    var pressThree = (data.daily.data[2].pressure);
+                    $('#three').html(tempThree);
+                    $('#sumThree').html(sumThree);
+                    $('#windSpeedThree').html(windThree);
+                    $('#pressThree').html(pressThree);
+                    // console.log(data);
+                });
+            }
         });
 
-
-
-$('#usersubmit').click(function () {
-    inputLat = document.getElementById('latitude').value;
-    inputLon = document.getElementById('longitude').value;
-    var userPosition = inputLat + ", " + inputLon;
-    // console.log(userPosition)
-    getWeather(inputLat, inputLon);
-
-});
-
-
-
-
-// var accessToken = mapboxToken;
-mapboxgl.accessToken = mapboxToken;
-
-// var marker = new mapboxgl.Marker()
-//     .setLngLat([-98.4916, 29.4260])
-//     .addTo(map);
-
-var userLat = 29.4241;
-var userLng = -98.4936;
-getWeather(userLat, userLng);
-
-function getWeather(userLat, userLng) {
-
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
-        console.log(data)
-        var dateObject = new Date(data.currently.time * 1000);
-        var temp = (data.currently.temperature);
-        var cloud = (data.currently.icon);
-        var speed = (data.currently.windSpeed);
-        var pressure = (data.currently.pressure);
-        $('#temp').html(temp);
-        $('#time').html(dateObject);
-        $('#cloud').html(cloud);
-        $('#speed').html(speed);
-        $('#pressure').html(pressure);
-        var tempTom = (data.daily.data[1].temperatureHigh);
-        var sumTom = (data.daily.data[1].summary);
-        var windTom = (data.daily.data[1].windSpeed);
-        var pressTom = (data.daily.data[1].pressure);
-        $('#tom').html(tempTom);
-        $('#sumTom').html(sumTom);
-        $('#windSpeed').html(windTom);
-        $('#pressTom').html(pressTom);
-        var tempThree = (data.daily.data[2].temperatureHigh);
-        var sumThree = (data.daily.data[2].summary);
-        var windThree = (data.daily.data[2].windSpeed);
-        var pressThree = (data.daily.data[2].pressure);
-        $('#three').html(tempThree);
-        $('#sumThree').html(sumThree);
-        $('#windSpeedThree').html(windThree);
-        $('#pressThree').html(pressThree);
-        // console.log(data);
     });
-}
-    </script>
+
+    $('#usersubmit').click(function () {
+        inputLat = document.getElementById('latitude').value;
+        inputLon = document.getElementById('longitude').value;
+        var userPosition = inputLat + ", " + inputLon;
+        // console.log(userPosition)
+        getWeather(inputLat, inputLon);
+
+    });
+    // var accessToken = mapboxToken;
+    mapboxgl.accessToken = mapboxToken;
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.4916, 29.4260])
+    //     .addTo(map);
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
