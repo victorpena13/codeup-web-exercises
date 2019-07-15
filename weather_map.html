@@ -19,9 +19,12 @@
         #map {
             /* the width and height may be set to any size */
             width: 100%;
-            height: 700px;
+            height: 300px;
         }
-
+        #weather {
+            /*display: none;*/
+            background-color: #75bbb6;
+        }
     </style>
 </head>
 <body>
@@ -48,40 +51,39 @@
 <!--    -->
 <!--    <input type="submit" onclick="nameRet()">-->
 <!--</form>-->
-<div id="weather"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h3>Today</h3>
-            Temperature: <br><span id="temp"></span><br>
+<div id='map'></div>
+<div id="weather">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Today</h3>
+                <strong>Temperature: </strong> <br><span id="temp"></span><br>
+                <strong>Clouds: </strong><br><span id="cloud"></span><br>
+                <strong>Wind Speed: </strong> <br><span id="speed"></span><br>
+                <strong>Pressure: </strong> <br><span id="pressure"></span><br>        </div>
+            <div class="col-sm">
+                <h3>Tomorrow</h3>
+                <strong>Temperature High:</strong> <br><span id="tom"></span><br>
+                <strong>Clouds:</strong> <br><span id="sumTom"></span><br>
+                <strong>Clouds:</strong> <br><span id="windSpeed"></span><br>
+                <strong>Clouds:</strong> <br><span id="pressTom"></span>
+            </div>
+            <div class="col-sm">
+                <!--            //build a function that shows the third day out from present!-->
+                <h3>Day after Tomorrow</h3>
+                <strong>Temperature High: </strong> <br><span id="three"></span><br>
+                <strong>Clouds:</strong> <br><span id="sumThree"></span><br>
+                <strong>Clouds:</strong> <br><span id="windSpeedThree"></span><br>
+                <strong>Clouds:</strong> <br><span id="pressThree"></span>
+            </div>
 
-            Clouds: <br><span id="cloud"></span><br>
-
-            Wind Speed: <br><span id="speed"></span><br>
-
-            Pressure: <br><span id="pressure"></span><br>        </div>
-        <div class="col-sm">
-            <h3>Tomorrow</h3>
-            Temperature High: <br><span id="tom"></span><br>
-            Clouds: <br><span id="sumTom"></span><br>
-            Wind Speed: <br><span id="windSpeed"></span><br>
-            Pressure: <br><span id="pressTom"></span>
+            <br>
         </div>
-        <div class="col-sm">
-<!--            //build a function that shows the third day out from present!-->
-            <h3>Day after Tomorrow</h3>
-            Temperature High: <br><span id="three"></span><br>
-            Clouds: <br><span id="sumThree"></span><br>
-            Wind Speed: <br><span id="windSpeedThree"></span><br>
-            Pressure: <br><span id="pressThree"></span>
-        </div>
-        <div id='map'></div>
 
         <br>
     </div>
-
-    <br>
 </div>
+
 
 
     <script src="js/keys.js"></script>
@@ -89,8 +91,10 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <script>
-    // var inputLat;
-    // var inputLon;
+    // $('#map').on('click', function(){
+    //     $('#weather').fadeIn();
+    // });
+
     geocode('San Antonio, TX', mapboxToken).then(function(SATX){
         var mapOptions = {
             container: 'map',
