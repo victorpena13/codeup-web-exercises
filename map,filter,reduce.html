@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+const myNumbers = [4,5,6,7,8];
+const myNewNumbers = myNumbers.map(function(x){
+    return x ** 2;
+});
+console.log(myNewNumbers);
+
+// const greatherThanSix = myNumbers.filter(function(x){
+//     return x > 6;
+// });
+const greatherThanSix = myNumbers.filter(x => x > 6);
+
+
+
+
+
+const books = [
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genres: ["southern","gothic","coming of age"],
+        yearsInPublication: 59
+    },
+    {
+        title: "No Longer Human",
+        author: "Osamu Dazai",
+        genres: ["autobiography","short novel"],
+        yearsInPublication: 71
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        genres: ["dystopian","sci-fi","political fiction"],
+        yearsInPublication: 70
+    },
+    {
+        title: "Noruwei no Mori",
+        author: "Haruki Murakami",
+        genres: ["coming of age", "novel"],
+        yearsInPublication: 32
+    }
+]
+//use reduce to return the longest author name
+const longestName = books.reduce(function(previous, current){
+    const currentName = current.author;
+    if(currentName.length > previous.length){
+        return currentName;
+    } else {
+        return previous;
+    }
+},"");
+
+// const bookTitles = books.map(book =>{
+//    return book.title;
+// });
+
+const bookTitles = books.map(book => book.title);
+const comingOfAge = books.filter(book =>book.genres.indexOf('coming of age') >= 0).map(book => book.title);
+console.log(comingOfAge);
+
+    /*
+        MAP
+        using .map, create an array that returns all author names.
+     */
+
+    const author = books.map(book => book.author);
+
+
+/*
+    FILTER
+    using .filter, create an array that returns all books with at least 3 genres
+ */
+
+const moreThenThree = books.filter(book =>book.genres.length > 2);
+console.log(moreThenThree);
+
+    /*
+        REDUCE
+        using .reduce, return the total years between all books.
+     */
+
+    const totalyears = books.reduce(function(next, current){
+        const currentYear = current.yearsInPublication;
+        return currentYear + next;
+    },0);
+
+
+
+
+
+
+    const sumNumbers = myNumbers.reduce(function(accumulation, currentElement){
+
+    },0);
+console.log(sumNumbers)
+
+
+;
+
+    //rewrite this as an arrow function
+    //give greeting a default value of "Good Morning"
+    //give cohort a default value of "Betelgeuse"
+    //rewrite the return to use template strings instead of concatenation
+
+    const goodMorning = (greeting = 'good morning, ',cohort = 'betelgeuse') =>{
+        return `${greeting} ${cohort}!`;
+    };
+
+    console.log(goodMorning());
+    console.log(goodMorning(undefined, "Ceres"));
+
+
+
+</script>
+
+</body>
+</html>
