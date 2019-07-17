@@ -14,7 +14,7 @@
 
     <style>
         body {
-            background-color: #addcfb;
+            background-color: #343a40;
         }
         #map {
             /* the width and height may be set to any size */
@@ -23,7 +23,10 @@
         }
         #weather {
             /*display: none;*/
-            background-color: #75bbb6;
+            background-color: #343a40;
+        }
+        h1, h2 {
+            color: white;
         }
     </style>
 </head>
@@ -56,25 +59,50 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h3>Today</h3>
-                <strong>Temperature: </strong> <br><span id="temp"></span><br>
-                <strong>Clouds: </strong><br><span id="cloud"></span><br>
-                <strong>Wind Speed: </strong> <br><span id="speed"></span><br>
-                <strong>Pressure: </strong> <br><span id="pressure"></span><br>        </div>
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<!--                    <img src="" class="card-img-top" alt="...">-->
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Today</h3>
+                        <strong>Temperature: </strong> <br><span id="temp"></span><br>
+                        <strong>Clouds: </strong><br><span id="cloud"></span><br>
+                        <strong>Wind Speed: </strong> <br><span id="speed"></span><br>
+                        <strong>Pressure: </strong> <br><span id="pressure"></span><br>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
             <div class="col-sm">
-                <h3>Tomorrow</h3>
-                <strong>Temperature High:</strong> <br><span id="tom"></span><br>
-                <strong>Clouds:</strong> <br><span id="sumTom"></span><br>
-                <strong>Clouds:</strong> <br><span id="windSpeed"></span><br>
-                <strong>Clouds:</strong> <br><span id="pressTom"></span>
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<!--                    <img src="..." class="card-img-top" alt="...">-->
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Tomorrow</h3>
+                        <strong>Temperature High:</strong> <br><span id="tom"></span><br>
+                        <strong>Clouds:</strong> <br><span id="sumTom"></span><br>
+                        <strong>Wind Speed: </strong> <br><span id="windSpeed"></span><br>
+                        <strong>Pressure: </strong> <br><span id="pressTom"></span>
+                        </p>
+                    </div>
+                </div>
+
             </div>
             <div class="col-sm">
                 <!--            //build a function that shows the third day out from present!-->
-                <h3>Day after Tomorrow</h3>
-                <strong>Temperature High: </strong> <br><span id="three"></span><br>
-                <strong>Clouds:</strong> <br><span id="sumThree"></span><br>
-                <strong>Clouds:</strong> <br><span id="windSpeedThree"></span><br>
-                <strong>Clouds:</strong> <br><span id="pressThree"></span>
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<!--                    <img src="..." class="card-img-top" alt="...">-->
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Day after Tomorrow</h3>
+                        <strong>Temperature High: </strong> <br><span id="three"></span><br>
+                        <strong>Clouds: </strong> <br><span id="sumThree"></span><br>
+                        <strong>Wind Speed: </strong> <br><span id="windSpeedThree"></span><br>
+                        <strong>Pressure: </strong> <br><span id="pressThree"></span>
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
             <br>
@@ -86,11 +114,21 @@
 
 
 
-    <script src="js/keys.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
+<script src="js/keys.js"></script>
 <script>
+
+    /* approuch to possibly change the name of the city...
+
+
+        the above should fire only after the value is updated in the input field
+
+
+     */
+
+
+
     // $('#map').on('click', function(){
     //     $('#weather').fadeIn();
     // });
@@ -107,50 +145,66 @@
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
         });
+
+
+
         map.addControl(geocoder);
         geocoder.on('result', function(e) {
             // console.log(e.result.geometry);
             var inputLat = e.result.geometry.coordinates[1];
             var inputLon = e.result.geometry.coordinates[0];
-            var userLat = 29.4241;
-            var userLng = -98.4936;
+
             getWeather(inputLat, inputLon);
-            function getWeather(userLat, userLng) {
-                $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
-                    console.log(data)
-                    var dateObject = new Date(data.currently.time * 1000);
-                    var temp = (data.currently.temperature);
-                    var cloud = (data.currently.icon);
-                    var speed = (data.currently.windSpeed);
-                    var pressure = (data.currently.pressure);
-                    $('#temp').html(temp);
-                    $('#time').html(dateObject);
-                    $('#cloud').html(cloud);
-                    $('#speed').html(speed);
-                    $('#pressure').html(pressure);
-                    var tempTom = (data.daily.data[1].temperatureHigh);
-                    var sumTom = (data.daily.data[1].summary);
-                    var windTom = (data.daily.data[1].windSpeed);
-                    var pressTom = (data.daily.data[1].pressure);
-                    $('#tom').html(tempTom);
-                    $('#sumTom').html(sumTom);
-                    $('#windSpeed').html(windTom);
-                    $('#pressTom').html(pressTom);
-                    var tempThree = (data.daily.data[2].temperatureHigh);
-                    var sumThree = (data.daily.data[2].summary);
-                    var windThree = (data.daily.data[2].windSpeed);
-                    var pressThree = (data.daily.data[2].pressure);
-                    $('#three').html(tempThree);
-                    $('#sumThree').html(sumThree);
-                    $('#windSpeedThree').html(windThree);
-                    $('#pressThree').html(pressThree);
-                    // console.log(data);
-                });
-            }
+            $('h2').html($('.mapboxgl-ctrl-geocoder input').val())
+
+
         });
+
 
     });
 
+    var userLat = 29.4241;
+    var userLng = -98.4936;
+    getWeather(userLat,userLng);
+
+
+    function getWeather(userLat, userLng) {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
+            var dateObject = new Date(data.currently.time * 1000);
+            var temp = (data.currently.temperature);
+            var cloud = (data.currently.icon);
+            var speed = (data.currently.windSpeed);
+            var pressure = (data.currently.pressure);
+            $('#temp').html(temp);
+            $('#time').html(dateObject);
+            $('#cloud').html(cloud);
+            $('#speed').html(speed);
+            $('#pressure').html(pressure);
+            var tempTom = (data.daily.data[1].temperatureHigh);
+            var sumTom = (data.daily.data[1].summary);
+            var windTom = (data.daily.data[1].windSpeed);
+            var pressTom = (data.daily.data[1].pressure);
+            $('#tom').html(tempTom);
+            $('#sumTom').html(sumTom);
+            $('#windSpeed').html(windTom);
+            $('#pressTom').html(pressTom);
+            var timeLast = (data.daily.data[2].time);
+            var tempThree = (data.daily.data[2].temperatureHigh);
+            var sumThree = (data.daily.data[2].summary);
+            var windThree = (data.daily.data[2].windSpeed);
+            var pressThree = (data.daily.data[2].pressure);
+            $('#three').html(tempThree);
+            $('#sumThree').html(sumThree);
+            $('#windSpeedThree').html(windThree);
+            $('#pressThree').html(pressThree);
+            var celciusOne = ((data.daily.data[1].temperatureHigh -32) * 5/9);
+
+            console.log(celciusOne.toFixed(2));
+            // Formula
+            // (32°F − 32) × 5/9 = 0°C
+
+        });
+    }
     $('#usersubmit').click(function () {
         inputLat = document.getElementById('latitude').value;
         inputLon = document.getElementById('longitude').value;
@@ -164,6 +218,16 @@
     // var marker = new mapboxgl.Marker()
     //     .setLngLat([-98.4916, 29.4260])
     //     .addTo(map);
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        console.log(lngLat);
+    }
+
+
+
+
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
