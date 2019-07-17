@@ -105,24 +105,68 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <img src="img/gex.jpg" alt="gex" width="75%">
+            <img id="one" src="img/gex.jpg" alt="gex" width="75%">
         </div>
         <div class="col-sm">
-            <img src="img/skate.PNG" alt="" width="75%">
+            <img id="two" src="img/skate.PNG" alt="" width="75%">
         </div>
         <div class="col-sm">
-            <img src="img/building.png" alt="" width="75%">
+            <img id="three" src="img/building.png" alt="" width="75%">
         </div>
+
     </div>
 </div>
+<button id="btn-one" type="submit">submit</button>
+<button id="btn-two" type="submit">submit</button>
+<button id="btn-three" type="submit">submit</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
 
+
+
+    $("#btn-one").click(function(){
+        var imgLeft = $('#one').attr('src');
+        var imgCenter = $('#two').attr('src');
+
+        $('#one').attr('src', imgCenter);
+        $('#two').attr('src', imgLeft);
+    });
+
+    $("#btn-three").click(function(){
+        var imgRight = $('#three').attr('src');
+        var imgCenter = $('#two').attr('src');
+
+        $('#three').attr('src', imgCenter);
+        $('#two').attr('src', imgRight);
+    });
+
+
+
+    // $("#swap2").click(function(){
+    //
+    //     for(var i=2; i>=0; i--) {
+    //         var imgLeft = $("#1").attr("src");
+    //         var imgCenter = $("#2").attr("src");
+    //         var imgRight = $("#3").attr("src");
+    //
+    //         var randomNumber = Math.floor(Math.random() * i);
+    //
+    //         if (randomNumber === 0) {
+    //             $("#2").attr("src", imgLeft);
+    //             $("#1").attr("src", imgCenter)
+    //         } else {
+    //             $("#2").attr("src", imgRight);
+    //             $("#3").attr("src", imgCenter)
+    //         }
+    //     }
+    // });
+
+
 $(document).ready(function(){
     $(".contentPost").delay(8000).fadeIn(500);
-})
+});
 
     $('h3').click(function(){
         $('ul').show();
