@@ -70,7 +70,7 @@ const instructors = users.reduce(function(previous, current, index, arr){
 
 // Use .reduce to get the unique list of languages from the list of users.
 
-const uniquelanguages = users.reduce(function(prev, current){
+const uniquelanguages = users.reduce(function(prev,current){
    const langs = current.languages;
    for(const lang of langs){
        prev.add(lang);

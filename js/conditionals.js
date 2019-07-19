@@ -113,34 +113,34 @@ console.log(analyzeColor(randomColor));
 
 
 
-// var favoriteColor = prompt('enter your favorite color:');
-// switch(favoriteColor) {
-//     case "blue":
-//         alert("thats my favorite color!");
-//         break;
-//     case "red":
-//         alert("reds okay!");
-//         break;
-//     case "cyan":
-//         alert("cyans alright i guess");
-//         break;
-//     case "yellow":
-//         alert("yellow is the color of the sun");
-//         break;
-//     case "green":
-//         alert("money is green");
-//         break;
-//     case "orange":
-//         alert("the sun is orange");
-//         break;
-//     case "indigo":
-//         alert("indigo!!!");
-//         break;
-//     case "violet":
-//         alert("violets are blue");
-//         break;
-//     default:
-//         alert("i don't like the color: " +favoriteColor + "!");
+var favoriteColor = prompt('enter your favorite color:');
+switch(favoriteColor) {
+    case "blue":
+        alert("thats my favorite color!");
+        break;
+    case "red":
+        alert("reds okay!");
+        break;
+    case "cyan":
+        alert("cyans alright i guess");
+        break;
+    case "yellow":
+        alert("yellow is the color of the sun");
+        break;
+    case "green":
+        alert("money is green");
+        break;
+    case "orange":
+        alert("the sun is orange");
+        break;
+    case "indigo":
+        alert("indigo!!!");
+        break;
+    case "violet":
+        alert("violets are blue");
+        break;
+    default:
+        alert("i don't like the color: " +favoriteColor + "!");
 // }
 
 

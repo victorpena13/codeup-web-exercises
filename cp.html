@@ -1,10 +1,573 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
 </head>
 <body>
+<form name="login">
+    <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
 
+<script>
+    "use strict";
+    (function(){
+
+
+        var usernameInput = document.forms.login.username;
+
+        // log the value of the "username" input
+        console.log(usernameInput.value);
+    })();
+
+</script>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>-->
+
+<!--    </title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<a href="http://www.yahoo.com" id="search-link">Web Search</a>-->
+
+<!--<script>-->
+<!--    "use strict";-->
+    (function() {
+    // var searchLink = document.getElementById("search-link");
+    //
+    // console.log(searchLink.hasAttribute("href"));
+    // console.log(searchLink.hasAttribute("class"));
+    //
+    // console.log(searchLink.getAttribute("href"));
+    // searchLink.setAttribute("class", "btn btn-default");
+    // searchLink.setAttribute("href", "http://google.com");
+    //
+    // searchLink.removeAttribute("class");
+<!--        const name = 'codeup';-->
+<!--        console.log('Hello, ${name.toUpperCase()}!');-->
+
+
+<!--    })();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>List One</h1>-->
+
+<!--<ul>-->
+<!--    <li class="odd list-one-item">List 1, Item 1</li>-->
+<!--    <li class="even list-one-item">List 1, Item 2</li>-->
+<!--</ul>-->
+
+<!--<h1>List Two</h1>-->
+<!--<ul>-->
+<!--    <li class="odd list-two-item">List 2, Item 1</li>-->
+<!--    <li class="even list-two-item">List 2, Item 2</li>-->
+<!--</ul>-->
+
+
+<!--<script>-->
+<!--"use strict";-->
+<!--(function(){-->
+<!--    var evenElements = document.getElementsByClassName('even');-->
+<!--    var listItems = document.getElementsByTagName('li');-->
+
+<!--    // for (var i = 0; i < evenElements.length; i++) {-->
+<!--    //     console.log(evenElements[i]);-->
+<!--    // }-->
+
+<!--    for (var i = 0; i < listItems.length; i++) {-->
+<!--        console.log(listItems[i]);-->
+<!--    }-->
+
+
+<!--})();-->
+
+
+<!--    // var count = 0;-->
+<!--// var max = 10;-->
+<!--// var interval = 1000;-->
+<!--//-->
+<!--// var intervalId = intervalTime(function () {-->
+<!--//     if(count >= max) {-->
+<!--//         clearInterval(intevalId);-->
+<!--//         console.log('All done');-->
+<!--//     } else {-->
+<!--//         count++;-->
+<!--//         console.log('Repeating this line ' + count);-->
+<!--//     }-->
+<!--// }, interval);-->
+
+
+<!--// var delay = 5000;-->
+<!--//-->
+<!--// var timeoutId = setTimeout(function () {-->
+<!--//     alert('here is a delayed hello!')-->
+<!--// }, delay);-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>sick</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: blue;-->
+<!--        }-->
+<!--        #nas {-->
+<!--            color: yellow;-->
+<!--        }-->
+<!--        h1 {-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 id="nas" lang="en">hi</h1>-->
+<!--<h1>hello bet</h1>-->
+<!--<h2 class="bet">hello world</h2>-->
+<!--<h2>frankestein</h2>-->
+<!--<div>-->
+<!--    <p class="bet">hooplah!</p>-->
+<!--</div>-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>heading</th>-->
+<!--        <th>heading2</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>01</td>-->
+<!--        <td>02</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>04</td>-->
+<!--        <td>03</td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="utf-8" />-->
+<!--    <meta http-equiv="x-ua-compatible" content="ie=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--    <title>Weather Map</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>San Antonio</h1>-->
+<!--<h2>Weather Map</h2>-->
+<!--<label for="latitude">Latitude</label>-->
+<!--<input id="latitude" type="text">-->
+<!--<label for="longitude">Longitude</label>-->
+<!--<input id="longitude" type="text">-->
+<!--<button id="userSubmit" type="submit" onclick="retrieve()">submit</button>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-sm">-->
+<!--            <strong>Temperature: </strong> <br><span id="currentTemp"></span><br>-->
+<!--            <strong>Summary: </strong><br><span id="currentSum"></span><br>-->
+<!--            <strong>Humidity: </strong><br><span id="currentHum"></span><br>-->
+<!--            <strong>Wind Speed: </strong><br><span id="currentWSpeed"></span><br>-->
+<!--            <strong>Pressure: </strong><br><span id="currentPres"></span><br>-->
+<!--        </div>-->
+<!--        <div class="col-sm">-->
+<!--            <strong>Temperature: </strong> <br><span id="oneTemp"></span><br>-->
+<!--            <strong>Summary: </strong><br><span id="oneSum"></span><br>-->
+<!--            <strong>Humidity: </strong><br><span id="oneHum"></span><br>-->
+<!--            <strong>Wind Speed: </strong><br><span id="oneWSpeed"></span><br>-->
+<!--            <strong>Pressure: </strong><br><span id="onePres"></span><br>        </div>-->
+<!--        <div class="col-sm">-->
+<!--            <strong>Temperature: </strong> <br><span id="twoTemp"></span><br>-->
+<!--            <strong>Summary: </strong><br><span id="twoSum"></span><br>-->
+<!--            <strong>Humidity: </strong><br><span id="twoHum"></span><br>-->
+<!--            <strong>Wind Speed: </strong><br><span id="twoWSpeed"></span><br>-->
+<!--            <strong>Pressure: </strong><br><span id="twoPres"></span><br>        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div id="insertProducts"></div>-->
+<!--<script src="js/keys.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+
+<!--<script>-->
+
+<!--    function retrieve(){-->
+<!--        inputLat += document.getElementById('latitude').value;-->
+<!--        inputLng += document.getElementById('longitude').value;-->
+<!--        console.log(inputLatitude);-->
+<!--        console.log((inputLongitude));-->
+<!--    };-->
+<!-- var inputLat = document.getElementById('latitude').value;-->
+<!-- var inputLng = document.getElementById('longitude').value;-->
+<!--    var userLat = 29.4241;-->
+<!--    var userLng = -98.4936;-->
+<!--getWeather(inputLat, inputLng);-->
+<!--function getWeather(userLat, userLng){-->
+<!--    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function(data){-->
+<!--        var currentTemp = (data.daily.data[0].temperatureHigh);-->
+<!--        var currentSum = (data.daily.data[0].summary);-->
+<!--        var currentHum = (data.daily.data[0].humidity);-->
+<!--        var currentWSpeed = (data.daily.data[0].windSpeed);-->
+<!--        var currentPres = (data.daily.data[0].pressure);-->
+<!--        $('#currentTemp').html(currentTemp);-->
+<!--        $('#currentSum').html(currentSum);-->
+<!--        $('#currentHum').html(currentHum);-->
+<!--        $('#currentWSpeed').html(currentWSpeed);-->
+<!--        $('#currentPres').html(currentPres);-->
+<!--        var oneTemp = (data.daily.data[1].temperatureHigh);-->
+<!--        var oneSum = (data.daily.data[1].summary);-->
+<!--        var oneHum = (data.daily.data[1].humidity);-->
+<!--        var oneWSpeed = (data.daily.data[1].windSpeed);-->
+<!--        var onePres = (data.daily.data[1].pressure);-->
+<!--        $('#oneTemp').html(oneTemp);-->
+<!--        $('#oneSum').html(oneSum);-->
+<!--        $('#oneHum').html(oneHum);-->
+<!--        $('#oneWSpeed').html(oneWSpeed);-->
+<!--        $('#onePres').html(onePres);-->
+<!--        var twoTemp = (data.daily.data[2].temperatureHigh);-->
+<!--        var twoSum = (data.daily.data[2].summary);-->
+<!--        var twoHum = (data.daily.data[2].humidity);-->
+<!--        var twoWSpeed = (data.daily.data[2].windSpeed);-->
+<!--        var twoPres = (data.daily.data[2].pressure);-->
+<!--        $('#twoTemp').html(twoTemp);-->
+<!--        $('#twoSum').html(twoSum);-->
+<!--        $('#twoHum').html(twoHum);-->
+<!--        $('#twoWSpeed').html(twoWSpeed);-->
+<!--        $('#twoPres').html(twoPres);-->
+<!--    });-->
+<!--}-->
+<!--    // $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/29.4241, -98.4936").done(function(data){-->
+<!--    //         var currentTemp = (data.daily.data[0].temperatureHigh);-->
+<!--    //         var currentSum = (data.daily.data[0].summary);-->
+<!--    //         var currentHum = (data.daily.data[0].humidity);-->
+<!--    //         var currentWSpeed = (data.daily.data[0].windSpeed);-->
+<!--    //         var currentPres = (data.daily.data[0].pressure);-->
+<!--    //         $('#currentTemp').html(currentTemp);-->
+<!--    //         $('#currentSum').html(currentSum);-->
+<!--    //         $('#currentHum').html(currentHum);-->
+<!--    //         $('#currentWSpeed').html(currentWSpeed);-->
+<!--    //         $('#currentPres').html(currentPres);-->
+<!--    //         var oneTemp = (data.daily.data[1].temperatureHigh);-->
+<!--    //         var oneSum = (data.daily.data[1].summary);-->
+<!--    //         var oneHum = (data.daily.data[1].humidity);-->
+<!--    //         var oneWSpeed = (data.daily.data[1].windSpeed);-->
+<!--    //         var onePres = (data.daily.data[1].pressure);-->
+<!--    //         $('#oneTemp').html(oneTemp);-->
+<!--    //         $('#oneSum').html(oneSum);-->
+<!--    //         $('#oneHum').html(oneHum);-->
+<!--    //         $('#oneWSpeed').html(oneWSpeed);-->
+<!--    //         $('#onePres').html(onePres);-->
+<!--    //         var twoTemp = (data.daily.data[2].temperatureHigh);-->
+<!--    //         var twoSum = (data.daily.data[2].summary);-->
+<!--    //         var twoHum = (data.daily.data[2].humidity);-->
+<!--    //         var twoWSpeed = (data.daily.data[2].windSpeed);-->
+<!--    //         var twoPres = (data.daily.data[2].pressure);-->
+<!--    //         $('#twoTemp').html(twoTemp);-->
+<!--    //         $('#twoSum').html(twoSum);-->
+<!--    //         $('#twoHum').html(twoHum);-->
+<!--    //         $('#twoWSpeed').html(twoWSpeed);-->
+<!--    //         $('#twoPres').html(twoPres);-->
+<!--    //-->
+<!--    //         console.log();-->
+<!--    //-->
+<!--    // });-->
+<!--</script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>-->
+<!--&lt;!&ndash; Your custom JS goes here &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="utf-8" />-->
+<!--    <meta http-equiv="x-ua-compatible" content="ie=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--    <title>Weather Map</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-sm">-->
+<!--            One of three columns-->
+<!--        </div>-->
+<!--        <div class="col-sm">-->
+<!--            One of three columns-->
+<!--        </div>-->
+<!--        <div class="col-sm">-->
+<!--            One of three columns-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div id="insertProducts"></div>-->
+<!--<script src="js/keys.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+
+<!--<script>-->
+<!--    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/29.4241, -98.4936").done(function(data){-->
+
+<!--var htmlStr = '';-->
+
+<!--    for(var i = 0; i < 3; i++){-->
+<!--        htmlStr += "Temperature: " +(data.daily.data[i].temperatureHigh);-->
+<!--        htmlStr += "Summary: " + (data.daily.data[i].summary);-->
+<!--        htmlStr += "Humidity: " + (data.daily.data[i].humidity);-->
+<!--        htmlStr += "Wind Speed: " + (data.daily.data[i].windSpeed);-->
+<!--        htmlStr += "Pressure: " +(data.daily.data[i].pressure);-->
+<!--        // $('#tempInfo').html(currentTemp);-->
+<!--        console.log(htmlStr);-->
+<!--    }-->
+
+<!--    $('#insertProducts').html(htmlStr);-->
+<!--    });-->
+<!--</script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>-->
+<!--&lt;!&ndash; Your custom JS goes here &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title></title>-->
+<!--    <style>-->
+<!--        /*#national-parks, #state-parks-texas {*/-->
+<!--        /*    display: none;*/-->
+<!--        /*}*/-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Parks List</h1>-->
+<!--<h3 id="national-parks-toggle">National Parks</h3>-->
+<!--<ul id="national-parks">-->
+<!--    <li>Arches</li>-->
+<!--    <li>Badlands</li>-->
+<!--    <li>Carlsbad Caverns</li>-->
+<!--    <li>Denali</li>-->
+<!--    <li>Everglades</li>-->
+<!--</ul>-->
+<!--<h3 id="state-parks-texas-toggle">State Parks of Texas</h3>-->
+<!--<ul id="state-parks-texas">-->
+<!--    <li>Abilene</li>-->
+<!--    <li>Big Bend</li>-->
+<!--    <li>Choke Canyon</li>-->
+<!--    <li>Davis Mountains</li>-->
+<!--    <li>Enchanted Rock</li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<!--<script>-->
+
+<!--    $('#national-parks-toggle').click(function(){-->
+<!--        $('#national-parks').slideToggle();-->
+<!--    });-->
+
+
+<!--    $('#state-parks-texas-toggle').click(function(){-->
+<!--        $('#state-parks-texas').fadeToggle();-->
+<!--    })-->
+
+<!--    // $('#national-parks-toggle').click(function() {-->
+<!--    //     $('#national-parks').hide();-->
+<!--    // });-->
+<!--    // $('#state-parks-texas-toggle').click(function() {-->
+<!--    //     $('#state-parks-texas').hide();-->
+<!--    // });-->
+
+<!--</script>-->
+<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+<!--<script type="text/javascript" src="js/my-custom-javascript.js"></script>-->
+<!--</html>-->
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <style>-->
+<!--&lt;!&ndash;        &ndash;&gt;-->
+<!--/*        div {*/-->
+<!--/*            color: red;*/-->
+<!--/*            text-align: center;*/-->
+<!--/*            cursor: pointer;*/-->
+<!--/*            font-weight: bolder;*/-->
+<!--/*            width: 300px;*/-->
+<!--/*        }*/-->
+<!--/*        ul {*/-->
+<!--/*            font-size: 18px;*/-->
+<!--/*            margin: 0;*/-->
+<!--/*        }*/-->
+<!--/*        span {*/-->
+<!--/*            color: blue;*/-->
+<!--/*            text-decoration: underline;*/-->
+<!--/*            cursor: pointer;*/-->
+<!--/*        }*/-->
+<!--/*        .simple {*/-->
+<!--/*            font-style: italic;*/-->
+<!--/*        }*/-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--To do list: <span>(click here to change)</span>-->
+
+<!--<h3 id="national-parks-heading">National Parks</h3>-->
+<!--<ul id="national-parks">-->
+<!--    <li>Arches</li>-->
+<!--    <li>Badlands</li>-->
+<!--    <li>Carlsbad Caverns</li>-->
+<!--    <li>Denali</li>-->
+<!--    <li>Everglades</li>-->
+<!--</ul>-->
+<!--<h3>State Parks of Texas</h3>-->
+<!--<ul id="state-parks-texas">-->
+<!--    <li>Abilene</li>-->
+<!--    <li>Big Bend</li>-->
+<!--    <li>Choke Canyon</li>-->
+<!--    <li>Davis Mountains</li>-->
+<!--    <li>Enchanted Rock</li>-->
+<!--</ul>-->
+<!--<ul>-->
+<!--    <li>Eat</li>-->
+<!--    <li>Sleep</li>-->
+<!--    <li>Be merry</li>-->
+<!--</ul>-->
+
+<!--<button>Change colors</button>-->
+<!--<span></span>-->
+<!--<div></div>-->
+<!--<div></div>-->
+<!--<div></div>-->
+<!--<div></div>-->
+<!--<div id="stop">Stop here</div>-->
+<!--<div></div>-->
+<!--<div></div>-->
+<!--<div></div>-->
+
+<!--<div>Click here</div>-->
+<!--<div>to iterate through</div>-->
+<!--<div>these divs.</div>-->
+<!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+<!--<script>-->
+<!--$("button").click(function(){-->
+<!--    $("div").each(function(index, element){-->
+<!--        $(element).css("backgroundColor", "yellow");-->
+<!--        if($(this).is("#stop")) {-->
+<!--            $("span").text("Stopped at div index #" + index);-->
+<!--            return false;-->
+<!--        }-->
+<!--    })-->
+<!--})-->
+
+
+<!--$(document.body).click(function(){-->
+<!--    $('div').each(function(i){-->
+<!--        if(this.style.color !== "blue"){-->
+<!--            this.style.color = "blue";-->
+<!--        } else {-->
+<!--            this.style.color = "";-->
+<!--        }-->
+<!--    });-->
+
+
+<!--$("span").click(function(){-->
+<!--    $('li').each(function(){-->
+<!--        $(this).toggleClass("simple");-->
+<!--    });-->
+<!--});-->
+
+
+<!--$('#national-parks').children().css('font-weight', 'bold');-->
+<!--$('li').parent().css('background-color', '#0f0');-->
+<!--$('#national-parks-heading').next().css('background-color', 'salmon');-->
+
+<!--//this changes text color from red to blue-->
+
+
+
+<!--// turns the background color of every other statement to purple.-->
+<!--    // $('li').each(function(index){-->
+<!--    //     if(index %2 !== 0) {-->
+<!--    //         $(this).css('background-color', 'purple');-->
+<!--    //     }-->
+<!--    // })-->
+<!--    // $('li').first().css('background-color', 'blue');-->
+<!--    // $('li').last().css('background-color', '#ff0');-->
+
+
+<!--});-->
+
+
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->

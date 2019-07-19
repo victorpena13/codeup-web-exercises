@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises</title>
+</head>
+<body>
+
+<script>
+
+    // const fizzbuzz = input => {
+    //     for(let i = 1; i < input; i++){
+    //         if(i % 3 == 0 && i % 5 == 0) {
+    //             console.log("fizzbuzz");
+    //         } else if (i % 3 == 0) {
+    //             console.log("fizz");
+    //         } else if (i % 5 == 0) {
+    //             console.log("buzz");
+    //         } else {
+    //             console.log(i)
+    //         }
+    //     }
+    // }
+
+    // function fizzbuzz(input){
+    //     for(let i = 1; i < input; i++){
+    //         if(i % 3 == 0 && i % 5 ==0) {
+    //             console.log("fizzbuzz");
+    //         } else if(i % 3 == 0) {
+    //             console.log("fizz");
+    //         } else if(i % 5 == 0) {
+    //             console.log("buzz");
+    //         } else {
+    //             console.log(i);
+    //         }
+    //     }
+    // }
+
+// const myPromise = new Promise((resolve, reject) =>{
+//     setTimeout(() => {
+//         let randomNumBetOneNZero = Math.random();
+//         console.log(randomNumBetOneNZero);
+//         if (randomNumBetOneNZero > .5) {
+//             resolve('resolve this: ');
+//
+//         } else {
+//             reject(`reject that: ${randomNumBetOneNZero}`);
+//         }
+//     }, 1500);
+//
+// });
+// console.log(myPromise);
+// myPromise.then(()=> console.log('resolved!'));
+// myPromise.catch(()=> console.log('rejected!'));
+
+
+
+// function makeRequest() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() =>{
+//             let randomNumBetOneNZero = Math.random();
+//             console.log(randomNumBetOneNZero);
+//             if(randomNumBetOneNZero > .5) {
+//                 resolve('Here is your data: ...');
+//             } else {
+//                 reject('Network Connection Error!');
+//             }
+//         }, 1500);
+//     });
+// }
+//
+// const request = makeRequest();
+// console.log(request); // pending promise
+// request.then(data => console.log('Promise Resolved!', data));
+// //if resolved, will log "promise resolved!" and "here is your data: ..."
+// request.catch(error => console.log('Promise Rejected!', error));
+// //if rejected, will log "Promise rejected!" and "Network Connection Error!"
+
+
+
+
+
+
+
+//
+// fetch('https://api.github.com/users')
+//     .then(response => console.log(response))
+//     .catch(error => console.log(error));
+
+// const githubPromise = fetch('https://api.github.com/repositories');
+// const bitbucketPromise = fetch('https://api.bitbucket.org/2.0/repositories');
+//
+// promise.all([githubPromise, bitbucketPromise])
+//     .then(function(data){
+//         //here data is an array of the resolved values from each promise
+//         //we can now do something with both pieces of data
+//     })
+//     .catch(function(error){
+//         //handle errors
+//     });
+
+//note:
+    //Promise.all: accepts an array of promises, and resolves when all of the individual promises have resolved.
+    //Promise.race: accepts an array of promises, and resolves when the first promise resolves
+
+//CHAINING
+//the return value from a promises callback can itself be treated as a promise, which allows us to chain promises together.
+
+Promise.resolve('first').then((one) => {
+        console.log(one);
+        return 'victor';
+    }).then((two) => {
+        console.log(two);
+        return 'third';
+    }).then((three) => {
+        console.log(three);
+    });
+
+//here we are using promise.resolve to immediately reutn a resolved promise with the passed value, in this case the string, 'one'.
+
+//to illustrate promise chaining further, let's imagine that we want to work with a list of usernames returned from the GitHub API.
+//the response objedct
+
+// fetch('https://api.github.com/users').then((response) => {
+//     const users = response.json().then((users) =>{
+//         users.forEach((user) => {
+//             //do something with each user object..
+//             var person = user;
+//             console.log(person.type);
+//         });
+//     });
+// });
+
+//instead of a user object, we want justa list of usernames, so we could write the following code..
+
+// fetch('https://api.github.com/users')
+//     .then(response => response.json())
+//     .then(users => users.map(user => user.login))
+//     .then(usernames => users.forEach((username) => {
+//         // do something with each username
+//     })
+//         .catch(error => console.error(error))
+</script>
+</body>
+</html>

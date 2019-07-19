@@ -5,8 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<script src="js/map-filter-reduce.js"></script>
 <script>
+
+const itWorked = () => console.log("It worked!");
+const itFailed = () => console.log("It failed!");
+const myPromise = new Promise((resolve, reject) => {
+    if (Math.random() > 0.5) {
+        resolve();
+    } else {
+        reject();
+    }
+});
+
+
+
+
 const myNumbers = [4,5,6,7,8];
 const myNewNumbers = myNumbers.map(function(x){
     return x ** 2;
@@ -87,9 +101,9 @@ console.log(moreThenThree);
         using .reduce, return the total years between all books.
      */
 
-    const totalyears = books.reduce(function(next, current){
+    const totalyears = books.reduce(function(accumulation, current){
         const currentYear = current.yearsInPublication;
-        return currentYear + next;
+        return currentYear + accumulation;
     },0);
 
 

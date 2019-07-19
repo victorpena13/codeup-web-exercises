@@ -1,10 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <title>Weather Map Project</title>
+
+
+    <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/weather_map.css">
+    <!--<script src=./js/jquery-2.x-git.js></script>-->
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
 </head>
 <body>
-$END$
+<main class="container">
+    <h1>Weather Map Project Lecture</h1>
+
+    <h3>San Antonio Area</h3>
+</main>
+
+<div id="search">
+    <input type="text" name="lonInput" placeholder="Longitude">
+    <input type="text" name="latInput" placeholder="Latitude">
+    <button id="searchBtn">SEARCH</button>
+</div>
+
+<div id="box">
+    <div id="weatherBox1" class='boxes'></div>
+    <div id="weatherBox2" class='boxes'></div>
+    <div id="weatherBox3" class='boxes'></div>
+
+</div>
+
+<div id="map-canvas"></div>
+
+
+<script>
+    function initMap() {
+        var sanA = {lat:29.426791, lng:-98.48602}
+        var map = new google.maps.Map(
+            document.getElementById('map-canvas'), {
+                zoom:4,
+                center: sanA
+            });
+        var marker = new google.maps.Marker({
+            position: sanA,
+            map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h3>Hades!</h3>'
+        });
+        infowindow.open(map, marker);
+    }
+    $(document).ready(function () {
+        'use strict';
+        var jqXhr = $.get('http://api.openweathermap.org/data/2.5/forecast',{
+            APPID: '4694d4d4e2bdd262873ba522f18e678e',
+            id: 4726206,
+            units: 'imperial'
+        });
+        jqXhr.done(function(data) {
+            for(var i = 0; i < data.list.length; i+= 8){
+                var output = '';
+                if (i > 17 ) {
+                    break;
+                }
+                output += '<h4>' + data.list[i].main.temp_max + '<span>&#176;</span>/' + data.list[i].main.temp_min + '<span>&#176;</span></h4>';
+                output += '<img src= http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png>';
+                output += '<p>' + data.list[i].weather[0].main + ': ' + data.list[i].weather[0].description + '</p>';
+                output += '<p><h3>Humidity:  </h3>' + data.list[i].main.humidity + '</p>';
+                output += '<p>Wind: ' + data.list[i].wind.speed + '</p>';
+                output += '<p>Pressure: ' + data.list[i].main.pressure + '</p>';
+                if (i === 0) {
+                    $('#weatherBox1').html(output);
+                }
+                if (i === 8) {
+                    $('#weatherBox2').html(output);
+                }
+                if (i === 16) {
+                    $('#weatherBox3').html(output);
+                }
+                // if (i === 24) {
+                //     $('#weatherBox4').html(output);
+                // }
+                console.log(data);
+            }
+               const getMinMaxDayTemp = (jqXhr, day) => {
+                   var output = '';
+                   const temps = data.list.slice(day * 8 - 8, day * 8)
+                       .reduce((prev, curr) => {
+                           prev.push(curr.main.temp);
+                           return prev;
+                       }, []).sort();
+                   return {min: temps.shift(), max: temps.pop()};
+
+
+
+
+
+            output += '<h4>' + getM + '<span>&#176;</span>/' + max(temps) + '<span>&#176;</span></h4>';
+            output += '<img src= http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png>';
+            output += '<p>' + data.list[i].weather[0].main + ': ' + data.list[i].weather[0].description + '</p>';
+            output += '<p><h3>Humidity:  </h3>' + data.list[i].main.humidity + '</p>';
+            output += '<p>Wind: ' + data.list[i].wind.speed + '</p>';
+            output += '<p>Pressure: ' + data.list[i].main.pressure + '</p>';
+
+                if (day === 0) {
+                    $('#box1').html(output);
+                }
+
+               }
+        });
+    });
+</script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNbUGQhFWUS8yi-XQ21ngugn6D45erQYM&callback=initMap" async defer></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM&callback=initMap" async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNbUGQhFWUS8yi-XQ21ngugn6D45erQYM&callback=initMap" async defer></script>
+
 </body>
 </html>
