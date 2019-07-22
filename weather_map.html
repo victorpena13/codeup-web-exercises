@@ -162,6 +162,19 @@
 
 
     });
+    mapboxgl.accessToken = mapboxToken;
+    var marker = new mapboxgl.Marker()({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        console.log(lngLat);
+    }
+    marker.on('dragend', onDragEnd);
 
     var userLat = 29.4241;
     var userLng = -98.4936;
@@ -213,17 +226,6 @@
         getWeather(inputLat, inputLon);
 
     });
-    // var accessToken = mapboxToken;
-    mapboxgl.accessToken = mapboxToken;
-    // var marker = new mapboxgl.Marker()
-    //     .setLngLat([-98.4916, 29.4260])
-    //     .addTo(map);
-
-
-    function onDragEnd() {
-        var lngLat = marker.getLngLat();
-        console.log(lngLat);
-    }
 
 
 
