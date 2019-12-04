@@ -19,37 +19,81 @@
 <button type="submit" id="sendInfo">submit </button>
 <button type="submit" id="push">pushme</button>
 
+
+A <input type="checkbox" name="quiz_question_1" value="a" class="quizOne"><br>
+B <input type="checkbox" name="quiz_question_1" value="b" class="quizOne"><br>
+C <input type="checkbox" name="quiz_question_1" value="c" class="quizOne"><br>
+D <input type="checkbox" name="quiz_question_1" value="d" class="quizOne"><br>
+<button type="submit" id="enterOne">submit</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
 
+    if (true) {
+        let x = 5;
+    }
+    console.log(typeof x);
+// $('').click(function(){
+//     if ((this).val() === true) {
+//         $(this).css('display', 'visible')
+//     }
+//
+// });
+//
+//
+//
+//
+//     const sayHello = (name = 'world') => `Hello, ${name}!`;
+//     let test = sayHello(hi);
+//     console.log(test);
 
-
-var movie = ['the mask', 'wanderlust', 'matrix'];
-
-    var theMask = movie[0];
-    $('#one').html(theMask);
-    console.log(theMask);
-
-
-
-    $('#push').on('click', function(){
-        $('#sendInfo').fadeIn(1500)
-        $('#info').fadeIn(1500);
-
-    });
-
-
-
-    var promise1 = new Promise(function(resolve, reject) {
-        resolve('success!');
-    })
-    $('#se        var movieOne = $(\'#info\').val();\nndInfo').on('click',function(){
-
-        var movie = []
-        movie.push(movieOne);
-
-    });
+//$('.submitChanges').click(function(){
+//    const title = $('#newMovie').val();
+//    const rating = $('#newRating').val();
+//    editMovie(title, rating);
+//});
+//
+//
+//
+//$('#enterOne').click(function(){
+//    let delCheckbox = $('.quizOne').val();
+//    console.log(delCheckbox);
+//
+//});
+//
+//
+//
+//
+//
+//$('#editbutton').click(function(){
+//    $('#hiddentext').css('display', 'visible');
+//})
+//
+// var movie = ['the mask', 'wanderlust', 'matrix'];
+//
+//     var theMask = movie[0];
+//     $('#one').html(theMask);
+//     console.log(theMask);
+//
+//
+//
+//     $('#push').on('click', function(){
+//         $('#sendInfo').fadeIn(1500)
+//         $('#info').fadeIn(1500);
+//
+//     });
+//
+//
+//
+//     var promise1 = new Promise(function(resolve, reject) {
+//         resolve('success!');
+//     })
+//     $('#se        var movieOne = $(\'#info\').val();\nndInfo').on('click',function(){
+//
+//         var movie = []
+//         movie.push(movieOne);
+//
+//     });
 </script>
 
 </body>

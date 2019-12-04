@@ -242,7 +242,23 @@
         book.author.firstName = firstName;
         book.author.lastName = lastName;
         return book;
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    function String ifTrue(a) {
+       if (a == )  
+}
 
 
 // })();

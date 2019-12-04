@@ -24,6 +24,7 @@
         #weather {
             /*display: none;*/
             background-color: #343a40;
+            display: none;
         }
         h1, h2 {
             color: white;
@@ -37,22 +38,25 @@
 <h1>Weather Application</h1>
 <!--Current Time: <span id="time"></span>-->
 <h2>San Antonio</h2>
+<span id="test"></span>
+
+<h3>victor</h3>
 
 
 
-<!--<label for="latitude">latitude</label>-->
-<!--<input id="latitude" name="latitude" type="text">-->
-<!--<label for="longitude">longitude</label>-->
-<!--<input id="longitude" name="longitude" type="text">-->
+<label for="latitude">latitude</label>
+<input id="latitude" name="latitude" type="text">
+<label for="longitude">longitude</label>
+<input id="longitude" name="longitude" type="text">
 
-<!--<button id="usersubmit" type="submit">submit</button>-->
+<button id="usersubmit" type="submit">submit</button>
 
 
 
-<!--<form id="form" onsubmit="return false;">-->
-<!--    <input type="text" id="userInput">-->
-<!--    -->
-<!--    <input type="submit" onclick="nameRet()">-->
+<form id="form" onsubmit="return false;">
+    <input type="text" id="userInput">
+
+    <input type="submit" onclick="nameRet()">
 <!--</form>-->
 <div id='map'></div>
 <div id="weather">
@@ -63,7 +67,6 @@
 <!--                    <img src="" class="card-img-top" alt="...">-->
                     <div class="card-body">
                         <p class="card-text">
-                        <h3>Today</h3>
                         <strong>Temperature: </strong> <br><span id="temp"></span><br>
                         <strong>Clouds: </strong><br><span id="cloud"></span><br>
                         <strong>Wind Speed: </strong> <br><span id="speed"></span><br>
@@ -129,9 +132,9 @@
 
 
 
-    // $('#map').on('click', function(){
-    //     $('#weather').fadeIn();
-    // });
+    $('#map').on('click', function(){
+        $('#weather').fadeIn();
+    });
 
     geocode('San Antonio, TX', mapboxToken).then(function(SATX){
         var mapOptions = {
@@ -153,9 +156,8 @@
             // console.log(e.result.geometry);
             var inputLat = e.result.geometry.coordinates[1];
             var inputLon = e.result.geometry.coordinates[0];
-
+            console.log(inputLat);
             getWeather(inputLat, inputLon);
-            $('h2').html($('.mapboxgl-ctrl-geocoder input').val())
 
 
         });
@@ -183,11 +185,18 @@
 
     function getWeather(userLat, userLng) {
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyeKey + "/" + userLat+ "," + userLng).done(function (data) {
+
+            var currentdate = new Date();
+            //insert current temp
+            var dateTime = currentdate.getMonth()+ 1 + "-" + currentdate.getDate() + "-" + currentdate.getFullYear();
+
+
             var dateObject = new Date(data.currently.time * 1000);
             var temp = (data.currently.temperature);
             var cloud = (data.currently.icon);
             var speed = (data.currently.windSpeed);
             var pressure = (data.currently.pressure);
+            $('#test').html(dateTime);
             $('#temp').html(temp);
             $('#time').html(dateObject);
             $('#cloud').html(cloud);
