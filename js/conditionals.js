@@ -18,7 +18,15 @@
 
 if(confirm("would you like to enter a number?") === true) {
     var userNumber = prompt("enter a number: ");
+    if(userNumber % 2 === 0) {
+        alert("you number is even!");
+    } else {
+        alert("your number is odd!");
+    }
+} else {
+    alert("goodbye!");
 }
+
 
 
 /* ########################################################################## */
