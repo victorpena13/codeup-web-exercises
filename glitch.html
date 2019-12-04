@@ -130,10 +130,10 @@
      */
 
     function applyDiscount(price, discount) {
-        var calculatedTip = calculateTip(price, discount);
-        return calculatedTip + price;
+        var discountAmount = price * discount;
+        return price - discountAmount;
     }
-    console.log(applyDiscount(20, 10));
+    console.log(applyDiscount(20, .1));
 
 </script>
 </body>
