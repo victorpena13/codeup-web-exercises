@@ -129,7 +129,11 @@
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
 
-
+    function applyDiscount(price, discount) {
+        var calculatedTip = calculateTip(price, discount);
+        return calculatedTip + price;
+    }
+    console.log(applyDiscount(20, 10));
 
 </script>
 </body>
