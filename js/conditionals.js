@@ -143,11 +143,11 @@ switch(randomColor) {
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-var luckyNum = Math.floor(Math.random() * 5);
+var luckyNum = Math.floor(Math.random() * 6);
 
 var userTotal = prompt("Enter your total and see if you qualify for a discount at random: ");
 
-calculateTotal(luckyNum, userTotal);
+var total = calculateTotal(luckyNum, userTotal);
 
 
 function calculateTotal(randomNumber, total ) {
@@ -178,5 +178,8 @@ function calculateTotal(randomNumber, total ) {
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-Generate a random number between 0 and 6
+// Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
+
+var total =+ alert("Your random number is: " + luckyNum);
+var total =+ alert("your total before discount was: " + userTotal);
