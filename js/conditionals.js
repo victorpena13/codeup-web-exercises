@@ -18,20 +18,20 @@
 
 
 
-// if(confirm("would you like to enter a number?") === true) {
-//     var userNumber = prompt("enter a number: ");
-//     if(userNumber % 2 === 0 && userNumber > 0) {
-//         alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
-//     } else if(userNumber % 2 === 0 && userNumber < 0) {
-//         alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
-//     } else if(userNumber % 2 !== 0 && userNumber > 0) {
-//         alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
-//     } else if(userNumber % 2 !== 0 && userNumber < 0) {
-//         alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
-//     }
-// } else {
-//     alert("goodbye!");
-// }
+if(confirm("would you like to enter a number?") === true) {
+    var userNumber = prompt("enter a number: ");
+    if(userNumber % 2 === 0 && userNumber > 0) {
+        alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
+    } else if(userNumber % 2 === 0 && userNumber < 0) {
+        alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
+    } else if(userNumber % 2 !== 0 && userNumber > 0) {
+        alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
+    } else if(userNumber % 2 !== 0 && userNumber < 0) {
+        alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
+    }
+} else {
+    alert("goodbye!");
+}
 
 
 
@@ -56,23 +56,23 @@
  */
 
 
-// function analyzeColor(color) {
-//     if(color === 'blue') {
-//         alert("That is my favorite color too!");
-//     } else if (color === 'red') {
-//         alert("Red is alright");
-//     } else if (color === 'cyan') {
-//         alert("is that seasoning?");
-//     } else {
-//         alert ("I don't know that color!");
-//     }
-// }
-//
-//
-//
-// var userColor = prompt("Enter a color:");
+function analyzeColor(color) {
+    if(color === 'blue') {
+        alert("That is my favorite color too!");
+    } else if (color === 'red') {
+        alert("Red is alright");
+    } else if (color === 'cyan') {
+        alert("is that seasoning?");
+    } else {
+        alert ("I don't know that color!");
+    }
+}
 
-// analyzeColor(userColor);
+
+
+var userColor = prompt("Enter a color:");
+
+analyzeColor(userColor);
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -87,7 +87,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 
 /**
@@ -95,21 +95,21 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Refactor your above function to use a switch-case statement
  */
 
-// switch(randomColor) {
-//     case "blue":
-//         alert("Blue is my favorite color!");
-//         break;
-//     case "red":
-//         alert("red is alright");
-//         break;
-//     case "yellow":
-//         alert("Yellow is the color of a sunflower");
-//         break;
-//     default:
-//         alert(randomColor + ", I don't know that color")
-// }
-//
-//
+switch(randomColor) {
+    case "blue":
+        alert("Blue is my favorite color!");
+        break;
+    case "red":
+        alert("red is alright");
+        break;
+    case "yellow":
+        alert("Yellow is the color of a sunflower");
+        break;
+    default:
+        alert(randomColor + ", I don't know that color")
+}
+
+
 
 
 /**
@@ -178,5 +178,5 @@ function calculateTotal(randomNumber, total ) {
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+Generate a random number between 0 and 6
+var luckyNumber = Math.floor(Math.random() * 6);
