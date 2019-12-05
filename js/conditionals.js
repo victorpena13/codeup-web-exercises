@@ -57,10 +57,14 @@ function analyzeColor(color) {
         alert("Red is alright");
     } else if (color === 'cyan') {
         alert("is that seasoning?");
+    } else {
+        alert ("I don't know that color!");
     }
 }
 
-var userColor = 'red';
+
+
+var userColor = prompt("Enter a color:");
 
 console.log(analyzeColor(userColor));
 
