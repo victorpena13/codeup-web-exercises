@@ -16,16 +16,16 @@
  * Can you refactor your code to use functions?
  */
 
-if(confirm("would you like to enter a number?") === true) {
-    var userNumber = prompt("enter a number: ");
-    if(userNumber % 2 === 0) {
-        alert("you number is even!");
-    } else {
-        alert("your number is odd!");
-    }
-} else {
-    alert("goodbye!");
-}
+// if(confirm("would you like to enter a number?") === true) {
+//     var userNumber = prompt("enter a number: ");
+//     if(userNumber % 2 === 0) {
+//         alert("you number is even!");
+//     } else {
+//         alert("your number is odd!");
+//     }
+// } else {
+//     alert("goodbye!");
+// }
 
 
 
@@ -48,6 +48,21 @@ if(confirm("would you like to enter a number?") === true) {
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+
+
+function analyzeColor(color) {
+    if(color === 'blue') {
+        alert("That is my favorite color too!");
+    } else if (color === 'red') {
+        alert("Red is alright");
+    } else if (color === 'cyan') {
+        alert("is that seasoning?");
+    }
+}
+
+var userColor = 'red';
+
+console.log(analyzeColor(userColor));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
