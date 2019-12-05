@@ -16,16 +16,22 @@
  * Can you refactor your code to use functions?
  */
 
-// if(confirm("would you like to enter a number?") === true) {
-//     var userNumber = prompt("enter a number: ");
-//     if(userNumber % 2 === 0) {
-//         alert("you number is even!");
-//     } else {
-//         alert("your number is odd!");
-//     }
-// } else {
-//     alert("goodbye!");
-// }
+
+
+if(confirm("would you like to enter a number?") === true) {
+    var userNumber = prompt("enter a number: ");
+    if(userNumber % 2 === 0 && userNumber > 0) {
+        alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
+    } else if(userNumber % 2 === 0 && userNumber < 0) {
+        alert("you number is even! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
+    } else if(userNumber % 2 !== 0 && userNumber > 0) {
+        alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Positive!" );
+    } else if(userNumber % 2 !== 0 && userNumber < 0) {
+        alert("you number is odd! \nYou number plus a 100 = " + (parseInt(userNumber) + 100) + "\nYour number is Negative!" );
+    }
+} else {
+    alert("goodbye!");
+}
 
 
 
@@ -50,23 +56,23 @@
  */
 
 
-function analyzeColor(color) {
-    if(color === 'blue') {
-        alert("That is my favorite color too!");
-    } else if (color === 'red') {
-        alert("Red is alright");
-    } else if (color === 'cyan') {
-        alert("is that seasoning?");
-    } else {
-        alert ("I don't know that color!");
-    }
-}
-
-
-
-var userColor = prompt("Enter a color:");
-
-console.log(analyzeColor(userColor));
+// function analyzeColor(color) {
+//     if(color === 'blue') {
+//         alert("That is my favorite color too!");
+//     } else if (color === 'red') {
+//         alert("Red is alright");
+//     } else if (color === 'cyan') {
+//         alert("is that seasoning?");
+//     } else {
+//         alert ("I don't know that color!");
+//     }
+// }
+//
+//
+//
+// var userColor = prompt("Enter a color:");
+//
+// console.log(analyzeColor(userColor));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
