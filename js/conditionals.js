@@ -56,23 +56,23 @@ if(confirm("would you like to enter a number?") === true) {
  */
 
 
-// function analyzeColor(color) {
-//     if(color === 'blue') {
-//         alert("That is my favorite color too!");
-//     } else if (color === 'red') {
-//         alert("Red is alright");
-//     } else if (color === 'cyan') {
-//         alert("is that seasoning?");
-//     } else {
-//         alert ("I don't know that color!");
-//     }
-// }
-//
-//
-//
-// var userColor = prompt("Enter a color:");
-//
-// console.log(analyzeColor(userColor));
+function analyzeColor(color) {
+    if(color === 'blue') {
+        alert("That is my favorite color too!");
+    } else if (color === 'red') {
+        alert("Red is alright");
+    } else if (color === 'cyan') {
+        alert("is that seasoning?");
+    } else {
+        alert ("I don't know that color!");
+    }
+}
+
+
+
+var userColor = prompt("Enter a color:");
+
+console.log(analyzeColor(userColor));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -86,6 +86,8 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+
+console.log(randomColor);
 
 /**
  * TODO:
