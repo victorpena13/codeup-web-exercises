@@ -94,6 +94,23 @@ console.log(randomColor);
  * Refactor your above function to use a switch-case statement
  */
 
+switch(randomColor) {
+    case "blue":
+        alert("Blue is my favorite color!");
+        break;
+    case "red":
+        alert("red is alright");
+        break;
+    case "yellow":
+        alert("Yellow is the color of a sunflower");
+        break;
+    default:
+        alert(randomColor + ", I don't know that color")
+}
+
+
+
+
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
