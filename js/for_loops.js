@@ -14,10 +14,17 @@ showMultiplicationTable(randomNumber);
 // between 20 and 200 and output to the console whether each number is odd or even.
 //
 
-var randomNum = Math.floor(Math.random() * 80) + 20;
+var randomNum = Math.floor(Math.random() * 180) + 20;
 
-console.log(randomNum);
+console.log("your number is " + randomNum);
 
+for (var i = 0; i < 11; i++) {
+    if (randomNum % 2 === 0) {
+        console.log("even");
+    } else {
+        console.log("odd");
+    }
+}
 
 
 
