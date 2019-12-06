@@ -147,7 +147,7 @@ var luckyNum = Math.floor(Math.random() * 6);
 
 var userTotal = prompt("Enter your total and see if you qualify for a discount at random: ");
 
-var total = calculateTotal(luckyNum, userTotal);
+calculateTotal(luckyNum, userTotal);
 
 
 function calculateTotal(randomNumber, total ) {
