@@ -30,4 +30,7 @@ for (var i = 1; i <= 10; i++){
     console.log(String(i).repeat(i));
 }
 
+for (var i = 100; i >=5; i= i-5) {
+    console.log(i);
+}
 
