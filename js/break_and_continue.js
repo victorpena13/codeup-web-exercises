@@ -3,4 +3,4 @@ do {
     if (isNaN(userNum)) {
         alert("That is not a number!");
     }
-} while (userNum % 2 === 0 && isNaN(userNum));
+} while (userNum % 2 === 0);
