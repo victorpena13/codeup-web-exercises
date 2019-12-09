@@ -25,11 +25,16 @@
      * accessing each element's index.
      */
 
+
+
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
+   for(var i = 0; i < names.length; i++) {
+        console.log('the name at the index of ' + i + ' is ' + names[i]);
+    }
 
     /**
      * TODO:
