@@ -7,7 +7,7 @@
      * 'names'.
      */
 
-
+var names = ['victor', 'celeste', 'cory', 'rebecca'];
 
 
 
