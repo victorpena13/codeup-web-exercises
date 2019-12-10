@@ -2,6 +2,9 @@ do {
     var userNum = prompt("enter an odd number between 1 & 50: ");
     if (isNaN(userNum)) {
         alert("That is not a number!");
+    } else if (userNum >= 50) {
+        alert("that number doesn't work");
+        var userNum = prompt("enter an odd number between 1 & 50: ");
     }
 } while (userNum % 2 === 0);
 
