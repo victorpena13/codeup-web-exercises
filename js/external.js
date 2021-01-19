@@ -16,7 +16,7 @@ var facebookRate = 350;
 var googleHours = Number(prompt("How many hours did you work for Google this week?"));
 var amazonHours = Number(prompt("How many hours did you work for Amazon this week?"));
 var facebookHours = Number(prompt("How many hours did you work for Facebook this week?"));
-alert Number("you earned: " + (googleHours * googleRate) + (amazonHours * amazonRate) + (facebookHours * facebookRate));
+alert ("you earned: " + (googleHours * googleRate) + (amazonHours * amazonRate) + (facebookHours * facebookRate));
 
 var classTime = Number(prompt("What time is the class?"));
 var noScheduleConflict = !confirm("Does the student have a class at " + classTime);

@@ -18,6 +18,14 @@
 // }
 
 
+var userNum = prompt("enter an odd number between 1 & 50: ");
+
+if (isNaN(userNum)) {
+    alert
+}
+
+
+
 
 
 //2 examples of how to make the above example a break and continue statement.
