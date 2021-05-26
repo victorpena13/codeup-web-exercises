@@ -42,8 +42,37 @@ for(var a = 0; a<10; a++) {
 
 for(var b = 1; b < 10; b++) {
     var output = '';
-    for (var j = 1; j<=i; j++) {
+    for (var j = 1; j<=b; j++) {
         output = output + b;
+        // output+=b;
     }
     console.log(output);
+}
+
+// Create a for loop that uses console.log to create
+// the output shown below.
+// 100
+// 95
+// 90
+// 85
+// 80
+// 75
+// 70
+// 65
+// 60
+// 55
+// 50
+// 45
+// 40
+// 35
+// 30
+// 25
+// 20
+// 15
+// 10
+// 5
+
+for(var d = 100; d>=5; d-=5) {
+
+    console.log(d);
 }
