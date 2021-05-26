@@ -1,36 +1,32 @@
-// Create a function named showMultiplicationTable that accepts a number and console.logs
-// the multiplication table for that number (just multiply by the numbers 1 through 10)
-
-function showMultiplicationTable(number) {
-    for (var i = 0; i < 11; i++) {
-        console.log(i + "*" + number + "=" + (number * i));
+"use strict";
+//a function that accepts a number(y) and passes y through a for loop
+// to give you the multiples of y by 1 - 10.
+//console.log the function and passed in a literal number to display results
+//in the console.
+function showMultiplicationTable(y) {
+    for(var i = 0; i<11; i++) {
+        console.log(y + " x " + i + " = " + (y*i));
     }
 }
-var randomNumber = Math.floor(Math.random() * 11);
+console.log(showMultiplicationTable(3));
 
-showMultiplicationTable(randomNumber);
 
-// Use a for loop and the code from the previous lessons to generate 10 random numbers
-// between 20 and 200 and output to the console whether each number is odd or even.
-//
+// Use a for loop and the code from the previous lessons to
+// generate 10 random numbers between 20 and 200 and output to
+// the console whether each number is odd or even.
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
 
-var randomNum = Math.floor(Math.random() * 180) + 20;
-
-console.log("your number is " + randomNum);
-
-for (var i = 0; i < 11; i++) {
-    if (randomNum % 2 === 0) {
-        console.log("even");
+for(var i = 0; i<10; i++) {
+    var random = getRandomInt(20,200);
+    if (random % 2 === 0) {
+        console.log("even = " + random);
     } else {
-        console.log("odd");
+        console.log("odd = " + random);
     }
 }
 
-for (var i = 1; i <= 10; i++){
-    console.log(String(i).repeat(i));
-}
-
-for (var i = 100; i >=5; i= i-5) {
-    console.log(i);
-}
 
