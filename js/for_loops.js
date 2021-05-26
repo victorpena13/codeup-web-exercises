@@ -20,7 +20,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-for(var i = 0; i<10; i++) {
+for(var a = 0; a<10; a++) {
     var random = getRandomInt(20,200);
     if (random % 2 === 0) {
         console.log("even = " + random);
@@ -29,4 +29,21 @@ for(var i = 0; i<10; i++) {
     }
 }
 
+// Create a for loop that uses console.log to create the output shown below.
+// 1
+// 22
+// 333
+// 4444
+// 55555
+// 666666
+// 7777777
+// 88888888
+// 999999999
 
+for(var b = 1; b < 10; b++) {
+    var output = '';
+    for (var j = 1; j<=i; j++) {
+        output = output + b;
+    }
+    console.log(output);
+}
