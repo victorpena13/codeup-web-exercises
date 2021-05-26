@@ -14,8 +14,6 @@ function sayHello(name){
 
 console.log(sayHello("codeup"));
 
-
-
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -37,9 +35,6 @@ console.log(helloMessage);
 var myName = "Victor"
 // sayHello(myName); you called sayHello and passed myName to it.
 console.log(sayHello(myName));
-
-
-
 
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -67,7 +62,8 @@ var random = Math.floor((Math.random() * 3) + 1);
 function isTwo(a) {
     return a === 2;
 }
-consoloe.log(random);
+console.log(random);
+console.log(isTwo(2));
 console.log(isTwo(random));
 
 /**
@@ -82,10 +78,10 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-function calculateTip(a, b) {
-    return a * b/100;
+function calculateTip(percentage, total) {
+    return percentage * total;
 }
-console.log(calculateTip(25.00,.20));
+console.log(calculateTip(.20,25));
 
 /**
  * TODO:
@@ -97,9 +93,6 @@ console.log(calculateTip(25.00,.20));
 var billAmount = Number(prompt("Enter bill amount: "));
 var tipPercentage = Number(prompt("enter tip percentage: ")/100);
 alert (calculateTip(billAmount, tipPercentage));
-
-
-
 
 /**
  * TODO:
@@ -117,9 +110,13 @@ alert (calculateTip(billAmount, tipPercentage));
  */
 
 
-function applyDiscount(price, discount) {
-    return price - (price * (discount/100));
+function applyDiscount(price, percent) {
+    return price - (percent * price);
 }
-var originalPrice = Number(prompt("enter orignal price: "));
-var discountPercent = Number(prompt("enter discount percent: "));
-alert(applyDiscount(originalPrice, discountPercent));
+
+var usersTotal = prompt("please enter your total! ");
+alert("Your total is: " + usersTotal);
+var decimalDiscount = prompt("enter decimal discount:");
+
+
+alert("your total is: " + applyDiscount(usersTotal, decimalDiscount));
